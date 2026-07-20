@@ -34,7 +34,7 @@ export function ServicePage({
   sectionImages,
 }: ServicePageProps) {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
       <section className={`subpage-hero accent-${accent}`}>
         <div className="subpage-copy">

@@ -9,7 +9,7 @@ export const metadata = pageMetadata({ title: "About", description: "A senior-le
 
 export default function AboutPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
       <section className="subpage-hero accent-green">
         <div className="subpage-copy">

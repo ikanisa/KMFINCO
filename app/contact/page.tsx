@@ -9,7 +9,7 @@ export const metadata = pageMetadata({ title: "Contact", description: "Start a c
 
 export default function ContactPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
       <section className="contact-page section-shell">
         <div className="contact-page-intro">

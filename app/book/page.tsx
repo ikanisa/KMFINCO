@@ -13,7 +13,7 @@ export const metadata = pageMetadata({
 
 export default function BookPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
       <section className="booking-page section-shell">
         <div className="booking-intro">

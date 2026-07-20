@@ -15,7 +15,7 @@ const articles = [
 
 export default function InsightsPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
       <section className="index-hero image-index-hero insights-hero">
         <div><p className="eyebrow">Perspectives</p><h1>Useful thinking for consequential decisions.</h1><p>Clear, practical perspectives from across assurance, consulting, risk, tax, governance and investment.</p></div>

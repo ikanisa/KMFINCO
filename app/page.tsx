@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PrimaryCta } from "./components/PrimaryCta";
+import { EditorialSlider } from "./components/EditorialSlider";
 import { SectionVisual } from "./components/SectionVisual";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
@@ -80,7 +81,7 @@ const insights = [
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
 
       <section className="hero" id="top">
@@ -134,6 +135,8 @@ export default function Home() {
         </div>
         <SectionVisual src="/home-capabilities-v2.webp" alt="Five connected advisory workstreams brought together around one client table" className="rail-section-visual" />
       </section>
+
+      <EditorialSlider />
 
       <section className="expertise-section section-shell" aria-labelledby="expertise-title">
         <div className="section-heading">

@@ -54,6 +54,9 @@ test("server-renders the KM FINCO homepage and social metadata", async () => {
   assert.match(html, /Internal audit &amp; controls/);
   assert.match(html, /src="\/advisory-team\.webp"/);
   assert.match(html, /href="\/book"[^>]*>Book a Meeting</i);
+  assert.match(html, /href="#main-content">Skip to main content/i);
+  assert.match(html, /One team around the whole decision/i);
+  assert.match(html, /Image slider controls/i);
 });
 
 test("server-renders dedicated service and contact routes", async () => {

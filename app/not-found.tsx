@@ -5,7 +5,7 @@ import { SiteHeader } from "./components/SiteHeader";
 
 export default function NotFound() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
       <section className="not-found section-shell">
         <p className="eyebrow">404 · Page not found</p>
