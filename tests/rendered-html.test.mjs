@@ -151,6 +151,10 @@ test("renders the insights hero without the removed Perspectives label", async (
   const html = await response.text();
   assert.match(html, /Useful thinking for consequential decisions\./);
   assert.doesNotMatch(html, />Perspectives</);
+  assert.doesNotMatch(html, /Discuss this topic/i);
+  const articleCards = html.match(/<article[^>]+class="article-card[^"]*"[\s\S]*?<\/article>/g) ?? [];
+  assert.equal(articleCards.length, 5);
+  for (const card of articleCards) assert.doesNotMatch(card, /<a\b/i, "insight cards should not render redundant CTA links");
 });
 
 test("omits redundant exploratory CTA labels", async () => {

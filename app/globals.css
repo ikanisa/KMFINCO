@@ -1545,15 +1545,6 @@ h1 {
 .article-card span { color: var(--green); font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
 .article-card h2 { margin: 18px 0; font-size: clamp(38px, 4vw, 58px); line-height: 0.98; }
 .article-card p { color: var(--ink-soft); }
-.article-card a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  color: var(--green);
-  font-size: 12px;
-  font-weight: 600;
-}
-
 .contact-page {
   padding: 110px 0 130px;
   display: grid;

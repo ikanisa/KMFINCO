@@ -212,4 +212,11 @@ The multi-page extension is visibly coherent across all ten routes. Every conten
 - The scheduler heading, progress indicator and booking controls retain their original alignment and reading order.
 - Rendered-HTML regression coverage now protects the badge removal.
 
+## Annotation pass 13 — Insights card CTA removal
+
+- Source visual truth: the user’s live-site annotation selecting the “Discuss this topic” link on an Insights card and requesting its deletion.
+- Removed the CTA from all five Insights cards, together with styling used only by those links. Article category, title, summary and imagery remain unchanged.
+- Global navigation and the dedicated booking route remain available without repeating an action inside every editorial card.
+- Rendered-HTML regression coverage now verifies that all five article cards contain no CTA links.
+
 final result: passed
