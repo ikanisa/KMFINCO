@@ -4,6 +4,8 @@ Date: 20 July 2026
 Local test profiles: desktop 1440 × 1000, reference 960 × 689, mobile 390 × 844  
 Production URL: `https://km-finco-advisory-2026.bosco560038.chatgpt.site`
 
+The same ten-route matrix and core conversion journeys were repeated after deployment against fresh, cache-disabled production responses. Production results match the local acceptance results below.
+
 ## Acceptance summary
 
 | Route | Desktop | Mobile | Images | SEO | Result |
@@ -60,4 +62,5 @@ The visible contact flow is a front-end success-state demonstration. It does not
 - `qa/generated-sections-contact-sheet.jpg`
 - Individual route captures in `qa/local-v3/`
 
-Final local result: passed
+- Final local result: passed
+- Final production result: passed

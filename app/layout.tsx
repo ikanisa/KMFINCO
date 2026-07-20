@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   applicationName: "KM FINCO",
   category: "professional services",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
   openGraph: {
     title: "KM FINCO | Clarity for what comes next",
     description:
