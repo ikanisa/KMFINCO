@@ -1,0 +1,2186 @@
+{
+  "desktopData": [
+    {
+      "label": "desktop",
+      "route": "/",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/",
+      "clientWidth": 1425,
+      "description": "Integrated audit, assurance, management consulting, corporate, tax, accounting and investment expertise.",
+      "formCount": 1,
+      "forms": [
+        {
+          "action": "",
+          "fields": [
+            {
+              "autocomplete": "name",
+              "name": "name",
+              "required": true,
+              "tag": "INPUT",
+              "type": null
+            },
+            {
+              "autocomplete": "email",
+              "name": "email",
+              "required": true,
+              "tag": "INPUT",
+              "type": "email"
+            },
+            {
+              "autocomplete": "organization",
+              "name": "organisation",
+              "required": false,
+              "tag": "INPUT",
+              "type": null
+            },
+            {
+              "autocomplete": null,
+              "name": "message",
+              "required": true,
+              "tag": "TEXTAREA",
+              "type": null
+            }
+          ],
+          "method": ""
+        }
+      ],
+      "h1Count": 1,
+      "imgCount": 8,
+      "labels": [
+        "Full name",
+        "Work email",
+        "Organisation",
+        "How can we help?"
+      ],
+      "linkCount": 26,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/services/audit-assurance",
+          "text": "01Audit & Assurance",
+          "visible": true
+        },
+        {
+          "href": "/services/management-consulting",
+          "text": "02Management Consulting",
+          "visible": true
+        },
+        {
+          "href": "/services/tax-accounting-payroll",
+          "text": "03Tax, Accounting & Payroll",
+          "visible": true
+        },
+        {
+          "href": "/services/corporate-fiduciary",
+          "text": "04Corporate & Fiduciary",
+          "visible": true
+        },
+        {
+          "href": "/services/investment-family-office",
+          "text": "05Investment & Family Office",
+          "visible": true
+        },
+        {
+          "href": "/services/audit-assurance",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/management-consulting",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/tax-accounting-payroll",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/corporate-fiduciary",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/investment-family-office",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/management-consulting",
+          "text": "Explore management consulting",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Risk & governanceBuilding an internal audit plan that stays relevant as risk cha",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Management consultingFrom strategy to execution: creating momentum without addin",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Reporting & assuranceWhat stronger controls can reveal about performance—not onl",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "KM FINCO | Clarity for what comes next",
+      "url": "/",
+      "consoleErrors": []
+    },
+    {
+      "label": "desktop",
+      "route": "/services",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services",
+      "clientWidth": 1425,
+      "description": "Connected audit, assurance, management consulting, tax, corporate and investment expertise.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 7,
+      "labels": [],
+      "linkCount": 17,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/services/audit-assurance",
+          "text": "01Audit & AssuranceIndependent perspective that strengthens confidence in report",
+          "visible": true
+        },
+        {
+          "href": "/services/management-consulting",
+          "text": "02Management ConsultingPractical strategy, internal audit, risk and transformati",
+          "visible": true
+        },
+        {
+          "href": "/services/tax-accounting-payroll",
+          "text": "03Tax, Accounting & PayrollClear, connected support for reporting, compliance an",
+          "visible": true
+        },
+        {
+          "href": "/services/corporate-fiduciary",
+          "text": "04Corporate & FiduciaryThoughtful structures and dependable administration acros",
+          "visible": true
+        },
+        {
+          "href": "/services/investment-family-office",
+          "text": "05Investment & Family OfficeLong-term thinking for capital, governance and the p",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "Expertise | KM FINCO",
+      "url": "/services",
+      "consoleErrors": []
+    },
+    {
+      "label": "desktop",
+      "route": "/services/audit-assurance",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/audit-assurance",
+      "clientWidth": 1425,
+      "description": "Independent audit and assurance services that strengthen confidence in financial reporting, internal controls and governance.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "Audit & Assurance | KM FINCO",
+      "url": "/services/audit-assurance",
+      "consoleErrors": []
+    },
+    {
+      "label": "desktop",
+      "route": "/services/management-consulting",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/management-consulting",
+      "clientWidth": 1425,
+      "description": "Management consulting for strategy, transformation, internal audit, risk management, internal controls, governance and performance improvement.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "Management Consulting | KM FINCO",
+      "url": "/services/management-consulting",
+      "consoleErrors": []
+    },
+    {
+      "label": "desktop",
+      "route": "/services/tax-accounting-payroll",
+      "bodyTextHasBooking": true,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/tax-accounting-payroll",
+      "clientWidth": 1425,
+      "description": "Connected tax advisory, compliance, accounting, financial reporting and payroll support for confident day-to-day decisions.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "Tax, Accounting & Payroll | KM FINCO",
+      "url": "/services/tax-accounting-payroll",
+      "consoleErrors": []
+    },
+    {
+      "label": "desktop",
+      "route": "/services/corporate-fiduciary",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/corporate-fiduciary",
+      "clientWidth": 1425,
+      "description": "Company formation, corporate administration, company secretarial, governance and fiduciary support across the business lifecycle.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "Corporate & Fiduciary | KM FINCO",
+      "url": "/services/corporate-fiduciary",
+      "consoleErrors": []
+    },
+    {
+      "label": "desktop",
+      "route": "/services/investment-family-office",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/investment-family-office",
+      "clientWidth": 1425,
+      "description": "Investment advisory, family-office support, family governance, financial planning and wealth structuring for long-term priorities.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "Investment & Family Office | KM FINCO",
+      "url": "/services/investment-family-office",
+      "consoleErrors": []
+    },
+    {
+      "label": "desktop",
+      "route": "/about",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/about",
+      "clientWidth": 1425,
+      "description": "A senior-led multidisciplinary advisory firm built around clarity, connection and practical progress.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 3,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Meet the right adviser",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Explore our expertise",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "About | KM FINCO",
+      "url": "/about",
+      "consoleErrors": []
+    },
+    {
+      "label": "desktop",
+      "route": "/insights",
+      "bodyTextHasBooking": true,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/insights",
+      "clientWidth": 1425,
+      "description": "Practical perspectives on assurance, management consulting, risk, tax, governance and investment.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 6,
+      "labels": [],
+      "linkCount": 16,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "Insights | KM FINCO",
+      "url": "/insights",
+      "consoleErrors": []
+    },
+    {
+      "label": "desktop",
+      "route": "/contact",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/contact",
+      "clientWidth": 1425,
+      "description": "Start a conversation with KM FINCO about audit, management consulting, tax, corporate or investment priorities.",
+      "formCount": 1,
+      "forms": [
+        {
+          "action": "",
+          "fields": [
+            {
+              "autocomplete": "name",
+              "name": "name",
+              "required": true,
+              "tag": "INPUT",
+              "type": null
+            },
+            {
+              "autocomplete": "email",
+              "name": "email",
+              "required": true,
+              "tag": "INPUT",
+              "type": "email"
+            },
+            {
+              "autocomplete": "organization",
+              "name": "organisation",
+              "required": false,
+              "tag": "INPUT",
+              "type": null
+            },
+            {
+              "autocomplete": null,
+              "name": "message",
+              "required": true,
+              "tag": "TEXTAREA",
+              "type": null
+            }
+          ],
+          "method": ""
+        }
+      ],
+      "h1Count": 1,
+      "imgCount": 1,
+      "labels": [
+        "Full name",
+        "Work email",
+        "Organisation",
+        "How can we help?"
+      ],
+      "linkCount": 11,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 1425,
+      "title": "Contact | KM FINCO",
+      "url": "/contact",
+      "consoleErrors": []
+    }
+  ],
+  "mobileData": [
+    {
+      "label": "mobile",
+      "route": "/",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/",
+      "clientWidth": 375,
+      "description": "Integrated audit, assurance, management consulting, corporate, tax, accounting and investment expertise.",
+      "formCount": 1,
+      "forms": [
+        {
+          "action": "",
+          "fields": [
+            {
+              "autocomplete": "name",
+              "name": "name",
+              "required": true,
+              "tag": "INPUT",
+              "type": null
+            },
+            {
+              "autocomplete": "email",
+              "name": "email",
+              "required": true,
+              "tag": "INPUT",
+              "type": "email"
+            },
+            {
+              "autocomplete": "organization",
+              "name": "organisation",
+              "required": false,
+              "tag": "INPUT",
+              "type": null
+            },
+            {
+              "autocomplete": null,
+              "name": "message",
+              "required": true,
+              "tag": "TEXTAREA",
+              "type": null
+            }
+          ],
+          "method": ""
+        }
+      ],
+      "h1Count": 1,
+      "imgCount": 8,
+      "labels": [
+        "Full name",
+        "Work email",
+        "Organisation",
+        "How can we help?"
+      ],
+      "linkCount": 26,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/services/audit-assurance",
+          "text": "01Audit & Assurance",
+          "visible": true
+        },
+        {
+          "href": "/services/management-consulting",
+          "text": "02Management Consulting",
+          "visible": true
+        },
+        {
+          "href": "/services/tax-accounting-payroll",
+          "text": "03Tax, Accounting & Payroll",
+          "visible": true
+        },
+        {
+          "href": "/services/corporate-fiduciary",
+          "text": "04Corporate & Fiduciary",
+          "visible": true
+        },
+        {
+          "href": "/services/investment-family-office",
+          "text": "05Investment & Family Office",
+          "visible": true
+        },
+        {
+          "href": "/services/audit-assurance",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/management-consulting",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/tax-accounting-payroll",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/corporate-fiduciary",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/investment-family-office",
+          "text": "Explore this service",
+          "visible": true
+        },
+        {
+          "href": "/services/management-consulting",
+          "text": "Explore management consulting",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Risk & governanceBuilding an internal audit plan that stays relevant as risk cha",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Management consultingFrom strategy to execution: creating momentum without addin",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Reporting & assuranceWhat stronger controls can reveal about performance—not onl",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "KM FINCO | Clarity for what comes next",
+      "url": "/",
+      "consoleErrors": []
+    },
+    {
+      "label": "mobile",
+      "route": "/services",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services",
+      "clientWidth": 375,
+      "description": "Connected audit, assurance, management consulting, tax, corporate and investment expertise.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 7,
+      "labels": [],
+      "linkCount": 17,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/services/audit-assurance",
+          "text": "01Audit & AssuranceIndependent perspective that strengthens confidence in report",
+          "visible": true
+        },
+        {
+          "href": "/services/management-consulting",
+          "text": "02Management ConsultingPractical strategy, internal audit, risk and transformati",
+          "visible": true
+        },
+        {
+          "href": "/services/tax-accounting-payroll",
+          "text": "03Tax, Accounting & PayrollClear, connected support for reporting, compliance an",
+          "visible": true
+        },
+        {
+          "href": "/services/corporate-fiduciary",
+          "text": "04Corporate & FiduciaryThoughtful structures and dependable administration acros",
+          "visible": true
+        },
+        {
+          "href": "/services/investment-family-office",
+          "text": "05Investment & Family OfficeLong-term thinking for capital, governance and the p",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "Expertise | KM FINCO",
+      "url": "/services",
+      "consoleErrors": []
+    },
+    {
+      "label": "mobile",
+      "route": "/services/audit-assurance",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/audit-assurance",
+      "clientWidth": 375,
+      "description": "Independent audit and assurance services that strengthen confidence in financial reporting, internal controls and governance.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "Audit & Assurance | KM FINCO",
+      "url": "/services/audit-assurance",
+      "consoleErrors": []
+    },
+    {
+      "label": "mobile",
+      "route": "/services/management-consulting",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/management-consulting",
+      "clientWidth": 375,
+      "description": "Management consulting for strategy, transformation, internal audit, risk management, internal controls, governance and performance improvement.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "Management Consulting | KM FINCO",
+      "url": "/services/management-consulting",
+      "consoleErrors": []
+    },
+    {
+      "label": "mobile",
+      "route": "/services/tax-accounting-payroll",
+      "bodyTextHasBooking": true,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/tax-accounting-payroll",
+      "clientWidth": 375,
+      "description": "Connected tax advisory, compliance, accounting, financial reporting and payroll support for confident day-to-day decisions.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "Tax, Accounting & Payroll | KM FINCO",
+      "url": "/services/tax-accounting-payroll",
+      "consoleErrors": []
+    },
+    {
+      "label": "mobile",
+      "route": "/services/corporate-fiduciary",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/corporate-fiduciary",
+      "clientWidth": 375,
+      "description": "Company formation, corporate administration, company secretarial, governance and fiduciary support across the business lifecycle.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "Corporate & Fiduciary | KM FINCO",
+      "url": "/services/corporate-fiduciary",
+      "consoleErrors": []
+    },
+    {
+      "label": "mobile",
+      "route": "/services/investment-family-office",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/services/investment-family-office",
+      "clientWidth": 375,
+      "description": "Investment advisory, family-office support, family governance, financial planning and wealth structuring for long-term priorities.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 5,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss your priorities",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Talk to an adviser",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "Investment & Family Office | KM FINCO",
+      "url": "/services/investment-family-office",
+      "consoleErrors": []
+    },
+    {
+      "label": "mobile",
+      "route": "/about",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/about",
+      "clientWidth": 375,
+      "description": "A senior-led multidisciplinary advisory firm built around clarity, connection and practical progress.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 3,
+      "labels": [],
+      "linkCount": 13,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Meet the right adviser",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Explore our expertise",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "About | KM FINCO",
+      "url": "/about",
+      "consoleErrors": []
+    },
+    {
+      "label": "mobile",
+      "route": "/insights",
+      "bodyTextHasBooking": true,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/insights",
+      "clientWidth": 375,
+      "description": "Practical perspectives on assurance, management consulting, risk, tax, governance and investment.",
+      "formCount": 0,
+      "forms": [],
+      "h1Count": 1,
+      "imgCount": 6,
+      "labels": [],
+      "linkCount": 16,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Discuss this topic",
+          "visible": true
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "Insights | KM FINCO",
+      "url": "/insights",
+      "consoleErrors": []
+    },
+    {
+      "label": "mobile",
+      "route": "/contact",
+      "bodyTextHasBooking": false,
+      "bodyTextHasEmailLike": false,
+      "bodyTextHasPhoneLike": false,
+      "bodyTextHasWhatsApp": false,
+      "canonical": "https://km-finco-advisory-2026.bosco560038.chatgpt.site/contact",
+      "clientWidth": 375,
+      "description": "Start a conversation with KM FINCO about audit, management consulting, tax, corporate or investment priorities.",
+      "formCount": 1,
+      "forms": [
+        {
+          "action": "",
+          "fields": [
+            {
+              "autocomplete": "name",
+              "name": "name",
+              "required": true,
+              "tag": "INPUT",
+              "type": null
+            },
+            {
+              "autocomplete": "email",
+              "name": "email",
+              "required": true,
+              "tag": "INPUT",
+              "type": "email"
+            },
+            {
+              "autocomplete": "organization",
+              "name": "organisation",
+              "required": false,
+              "tag": "INPUT",
+              "type": null
+            },
+            {
+              "autocomplete": null,
+              "name": "message",
+              "required": true,
+              "tag": "TEXTAREA",
+              "type": null
+            }
+          ],
+          "method": ""
+        }
+      ],
+      "h1Count": 1,
+      "imgCount": 1,
+      "labels": [
+        "Full name",
+        "Work email",
+        "Organisation",
+        "How can we help?"
+      ],
+      "linkCount": 11,
+      "links": [
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": false
+        },
+        {
+          "href": "/#who-we-help",
+          "text": "Who we help",
+          "visible": false
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": false
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": false
+        },
+        {
+          "href": "/contact",
+          "text": "Start a conversation",
+          "visible": false
+        },
+        {
+          "href": "/",
+          "text": "KM FINCO",
+          "visible": true
+        },
+        {
+          "href": "/services",
+          "text": "Expertise",
+          "visible": true
+        },
+        {
+          "href": "/about",
+          "text": "About",
+          "visible": true
+        },
+        {
+          "href": "/insights",
+          "text": "Insights",
+          "visible": true
+        },
+        {
+          "href": "/contact",
+          "text": "Contact",
+          "visible": true
+        }
+      ],
+      "mainCount": 1,
+      "missingAlt": 0,
+      "overflowDelta": 0,
+      "overflowing": [],
+      "scrollWidth": 375,
+      "title": "Contact | KM FINCO",
+      "url": "/contact",
+      "consoleErrors": []
+    }
+  ]
+}

@@ -54,7 +54,8 @@ a {
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
 }
 
@@ -784,7 +785,10 @@ h1 {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.booking-form input,
+.booking-form textarea,
+.booking-form select {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 11px;
@@ -799,21 +803,157 @@ h1 {
   padding: 0 14px;
 }
 
+.booking-form input,
+.booking-form select {
+  height: 52px;
+  padding: 0 14px;
+}
+
 .contact-form textarea {
   padding: 14px;
   resize: vertical;
 }
 
+.booking-form textarea {
+  padding: 14px;
+  resize: vertical;
+}
+
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.booking-form input:focus,
+.booking-form textarea:focus,
+.booking-form select:focus {
   border-color: rgba(255, 255, 255, 0.68);
   background: rgba(255, 255, 255, 0.12);
 }
+
+.booking-page {
+  padding: 110px 0 130px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.booking-intro h1 {
+  max-width: 670px;
+  font-size: clamp(62px, 6vw, 88px);
+}
+
+.booking-intro > p:not(.eyebrow) {
+  max-width: 580px;
+  color: var(--ink-soft);
+}
+
+.booking-assurances {
+  margin: 36px 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.booking-assurances span {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.booking-alternative a,
+.schedule-link {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.booking-panel {
+  padding: 50px;
+  border-radius: 26px;
+  background: linear-gradient(145deg, #174f43 0%, #0f392f 100%);
+  box-shadow: var(--shadow-soft);
+  color: white;
+}
+
+.booking-form {
+  display: grid;
+  gap: 18px;
+}
+
+.booking-form label {
+  display: grid;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.booking-form input,
+.booking-form textarea,
+.booking-form select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  outline: none;
+}
+
+.booking-form select option { color: var(--ink); }
+.booking-note { margin: 0; color: rgba(255, 255, 255, 0.62); font-size: 11px; }
+.schedule-link { color: white; font-size: 12px; }
+
+.booking-success {
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.booking-success .eyebrow { color: rgba(255, 255, 255, 0.62); }
+.booking-success h2 { margin-bottom: 20px; font-size: 54px; line-height: 1; }
+.booking-success > p:not(.eyebrow) { color: rgba(255, 255, 255, 0.72); }
+.booking-result-actions { margin: 20px 0; display: flex; align-items: center; gap: 22px; }
+.booking-result-actions .text-link { color: white; }
+.reset-button { align-self: flex-start; margin-top: 18px; padding: 0; border: 0; background: transparent; color: white; text-decoration: underline; cursor: pointer; }
 
 .submit-button {
   justify-self: start;
   min-width: 190px;
   padding: 0 22px;
+}
+
+.submit-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.consent-check {
+  grid-template-columns: 20px 1fr !important;
+  align-items: start;
+  gap: 10px !important;
+  font-weight: 400 !important;
+  line-height: 1.5;
+}
+
+.consent-check input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--coral);
+}
+
+.consent-check a,
+.form-error a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-error {
+  margin: 0;
+  color: #ffe0d9;
+  font-size: 13px;
 }
 
 .form-success {
@@ -859,9 +999,22 @@ h1 {
   font-size: 38px;
 }
 
-.site-footer > p {
+.footer-summary > p {
   max-width: 400px;
+  margin-bottom: 10px;
   color: var(--ink-soft);
+}
+
+.footer-summary > span {
+  display: block;
+  max-width: 430px;
+  color: #718087;
+  font-size: 12px;
+}
+
+.footer-links {
+  display: grid;
+  gap: 18px;
 }
 
 .site-footer nav {
@@ -869,6 +1022,20 @@ h1 {
   justify-content: flex-end;
   gap: 28px;
   font-size: 13px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px 20px;
+  color: var(--green);
+  font-size: 12px;
+}
+
+.footer-contact a:hover,
+.site-footer nav a:hover {
+  color: var(--coral-dark);
 }
 
 .site-footer nav a {
@@ -1185,6 +1352,148 @@ h1 {
 .contact-page-intro img { width: 100%; height: 360px; margin-top: 50px; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-soft); }
 .contact-page-form { align-self: start; padding: 50px; border-radius: 26px; background: linear-gradient(145deg, #174f43 0%, #0f392f 100%); box-shadow: var(--shadow-soft); color: white; }
 
+.contact-options {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.contact-options a {
+  min-height: 92px;
+  padding: 18px;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.62);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.contact-options a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(23, 79, 67, 0.45);
+}
+
+.contact-options span {
+  color: #718087;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-options strong {
+  color: var(--green);
+  font-size: 14px;
+}
+
+.service-area {
+  margin-top: 28px !important;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.service-area strong {
+  color: var(--ink);
+}
+
+.legal-page {
+  max-width: 920px;
+  padding: 110px 0 130px;
+}
+
+.legal-page h1,
+.not-found h1 {
+  max-width: 840px;
+  font-size: clamp(62px, 7vw, 96px);
+}
+
+.legal-updated {
+  margin: -10px 0 64px;
+  color: #718087;
+  font-size: 13px;
+}
+
+.legal-page section {
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+}
+
+.legal-page section h2 {
+  margin-bottom: 14px;
+  font-size: 35px;
+}
+
+.legal-page section p {
+  color: var(--ink-soft);
+}
+
+.legal-page section a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.not-found {
+  min-height: 68vh;
+  padding: 130px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.not-found > p:not(.eyebrow) {
+  max-width: 620px;
+  color: var(--ink-soft);
+  font-size: 18px;
+}
+
+.not-found-actions {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.text-link {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.consent-banner {
+  position: fixed;
+  z-index: 100;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(16, 38, 53, 0.97);
+  box-shadow: 0 20px 60px rgba(16, 38, 53, 0.28);
+  color: white;
+}
+
+.consent-banner strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: 24px; font-weight: 500; }
+.consent-banner p { max-width: 590px; margin: 3px 0 0; color: rgba(255, 255, 255, 0.72); font-size: 12px; }
+.consent-banner p a { color: white; text-decoration: underline; }
+.consent-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.consent-actions button { min-height: 42px; padding: 0 16px; border-radius: 9px; color: white; cursor: pointer; }
+.consent-secondary { border: 1px solid rgba(255, 255, 255, 0.32); background: transparent; }
+.consent-primary { border: 0; background: var(--coral); }
+
 @media (max-width: 900px) {
   .subpage-hero { width: calc(100% - 36px); grid-template-columns: 1fr; }
   .subpage-copy { padding: 70px 36px; }
@@ -1193,7 +1502,7 @@ h1 {
   .service-offerings { grid-template-columns: 1fr 1fr; }
   .service-offerings article:nth-child(3n) { border-right: 1px solid var(--line); }
   .service-offerings article:nth-child(2n) { border-right: 0; }
-  .service-outcomes, .subpage-cta, .about-story, .contact-page { grid-template-columns: 1fr; }
+  .service-outcomes, .subpage-cta, .about-story, .contact-page, .booking-page { grid-template-columns: 1fr; }
   .service-outcomes-visual { grid-column: auto; }
   .service-index-grid { grid-template-columns: 1fr; }
   .service-index-card:last-child { grid-column: auto; grid-template-columns: 1fr; grid-template-rows: 58% 42%; }
@@ -1226,6 +1535,17 @@ h1 {
   .contact-page { width: calc(100% - 28px); padding: 80px 0; }
   .contact-page-intro h1 { font-size: 58px; }
   .contact-page-form { padding: 32px 22px; }
+  .booking-page { width: calc(100% - 28px); padding: 80px 0; }
+  .booking-intro h1 { font-size: 58px; }
+  .booking-panel { padding: 32px 22px; }
+  .booking-result-actions { align-items: flex-start; flex-direction: column; }
+  .contact-options { grid-template-columns: 1fr; }
+  .legal-page { width: calc(100% - 36px); padding: 80px 0 100px; }
+  .not-found { width: calc(100% - 36px); padding: 90px 0; }
+  .not-found-actions { align-items: flex-start; flex-direction: column; }
+  .consent-banner { right: 12px; bottom: 12px; left: 12px; align-items: stretch; flex-direction: column; }
+  .consent-actions { width: 100%; }
+  .consent-actions button { flex: 1; }
   .image-index-hero { width: calc(100% - 24px); padding: 38px 20px 20px; }
   .image-index-hero img { height: 300px; }
 }

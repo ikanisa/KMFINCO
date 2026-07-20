@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
-export const siteUrl = "https://km-finco-advisory-2026.bosco560038.chatgpt.site";
+import { siteConfig } from "./site-config";
+
+export const siteUrl = siteConfig.url;
 
 type PageMetadataInput = {
   title: string;

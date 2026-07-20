@@ -22,6 +22,21 @@ async function render(pathname = "/") {
   );
 }
 
+async function post(pathname, payload, bindings = {}) {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}-post`);
+  const { default: worker } = await import(workerUrl.href);
+  return worker.fetch(
+    new Request(`http://localhost${pathname}`, {
+      method: "POST",
+      headers: { accept: "application/json", "content-type": "application/json" },
+      body: JSON.stringify(payload),
+    }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) }, ...bindings },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+}
+
 test("server-renders the KM FINCO homepage and social metadata", async () => {
   const response = await render();
   assert.equal(response.status, 200);
@@ -31,7 +46,7 @@ test("server-renders the KM FINCO homepage and social metadata", async () => {
   assert.match(html, /<title>KM FINCO \| Clarity for what comes next<\/title>/i);
   assert.match(
     html,
-    /property="og:image" content="https:\/\/km-finco-advisory-2026\.bosco560038\.chatgpt\.site\/og\.jpg"/i,
+    /property="og:image" content="https:\/\/kmfinco\.com\/og\.jpg"/i,
   );
   assert.match(html, /Clarity for what comes next\./);
   assert.match(html, /Audit &amp; Assurance/);
@@ -78,6 +93,7 @@ test("every content section renders a distinct relevant image", async () => {
     ["/about", 3, ["about-principles-v2.webp", "about-story-v2.webp"]],
     ["/insights", 6, ["insights-risk-v2.webp", "insights-controls-v2.webp", "insights-strategy-v2.webp", "insights-tax-v2.webp", "insights-family-v2.webp"]],
     ["/contact", 1, ["contact-conversation.webp"]],
+    ["/book", 0, []],
   ];
 
   for (const [pathname, minimumUniqueImages, requiredNames] of routeExpectations) {
@@ -103,12 +119,117 @@ test("renders production SEO signals", async () => {
   const sitemap = await sitemapResponse.text();
   const robots = await robotsResponse.text();
 
-  assert.match(home, /rel="canonical" href="https:\/\/km-finco-advisory-2026\.bosco560038\.chatgpt\.site\/"/i);
+  assert.match(home, /rel="canonical" href="https:\/\/kmfinco\.com\/"/i);
   assert.match(home, /"@type":\["Organization","ProfessionalService"\]/);
   assert.match(consulting, /Management consulting for strategy, transformation, internal audit, risk management/i);
-  assert.match(consulting, /rel="canonical" href="https:\/\/km-finco-advisory-2026\.bosco560038\.chatgpt\.site\/services\/management-consulting"/i);
+  assert.match(consulting, /rel="canonical" href="https:\/\/kmfinco\.com\/services\/management-consulting"/i);
   assert.equal(sitemapResponse.status, 200);
-  assert.match(sitemap, /<loc>https:\/\/km-finco-advisory-2026\.bosco560038\.chatgpt\.site\/services\/audit-assurance<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/kmfinco\.com\/services\/audit-assurance<\/loc>/);
   assert.equal(robotsResponse.status, 200);
-  assert.match(robots, /Sitemap: https:\/\/km-finco-advisory-2026\.bosco560038\.chatgpt\.site\/sitemap\.xml/);
+  assert.match(robots, /Sitemap: https:\/\/kmfinco\.com\/sitemap\.xml/);
+});
+
+test("renders launch contact, privacy and not-found requirements", async () => {
+  const [contactResponse, bookingResponse, privacyResponse, notFoundResponse] = await Promise.all([
+    render("/contact"),
+    render("/book"),
+    render("/privacy"),
+    render("/this-page-does-not-exist"),
+  ]);
+
+  const [contact, booking, privacy, notFound] = await Promise.all([
+    contactResponse.text(),
+    bookingResponse.text(),
+    privacyResponse.text(),
+    notFoundResponse.text(),
+  ]);
+
+  assert.equal(contactResponse.status, 200);
+  assert.match(contact, /mailto:hello@kmfinco\.com/i);
+  assert.match(contact, /tel:\+35679428604/i);
+  assert.match(contact, /wa\.me\/35679428604/i);
+  assert.match(contact, /Google Calendar/i);
+  assert.match(contact, /privacy policy/i);
+
+  assert.equal(bookingResponse.status, 200);
+  assert.match(booking, /Choose a time to make the next decision clearer/i);
+  assert.match(booking, /Request this meeting/i);
+  assert.match(booking, /Google Meet created on confirmation/i);
+
+  assert.equal(privacyResponse.status, 200);
+  assert.match(privacy, /Information we collect/i);
+  assert.match(privacy, /Your choices and rights/i);
+
+  assert.equal(notFoundResponse.status, 404);
+  assert.match(notFound, /Page not found/i);
+  assert.match(notFound, /Return home/i);
+});
+
+test("first-party contact and booking APIs validate input and fail safely without credentials", async () => {
+  const [contactInvalid, bookingInvalid] = await Promise.all([
+    post("/api/contact", { name: "", email: "not-an-email", message: "", privacy_consent: false }),
+    post("/api/book", { name: "", email: "not-an-email", start: "invalid", duration: 30, privacy_consent: false }),
+  ]);
+  assert.equal(contactInvalid.status, 400);
+  assert.equal(bookingInvalid.status, 400);
+
+  const future = new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString();
+  const [contactUnconfigured, bookingUnconfigured] = await Promise.all([
+    post("/api/contact", { name: "Test Client", email: "test@example.com", message: "Advisory enquiry", privacy_consent: "agreed" }),
+    post("/api/book", { name: "Test Client", email: "test@example.com", start: future, duration: 30, timezone: "Europe/Malta", privacy_consent: "agreed" }),
+  ]);
+  assert.equal(contactUnconfigured.status, 503);
+  assert.equal(bookingUnconfigured.status, 503);
+  assert.deepEqual(await contactUnconfigured.json(), { error: "contact_delivery_not_configured" });
+  assert.deepEqual(await bookingUnconfigured.json(), { error: "booking_not_configured" });
+});
+
+test("first-party APIs deliver enquiries and create conflict-checked Google Meet events", async () => {
+  const originalFetch = globalThis.fetch;
+  const requests = [];
+  globalThis.fetch = async (input, init = {}) => {
+    const url = String(input);
+    requests.push({ url, body: init.body ? String(init.body) : "" });
+    if (url === "https://api.resend.com/emails") return Response.json({ id: "email_123" });
+    if (url === "https://oauth2.googleapis.com/token") return Response.json({ access_token: "test_token" });
+    if (url === "https://www.googleapis.com/calendar/v3/freeBusy") {
+      return Response.json({ calendars: { primary: { busy: [] } } });
+    }
+    if (url.includes("/calendar/v3/calendars/primary/events")) {
+      return Response.json({ id: "event_123", htmlLink: "https://calendar.google.com/event?eid=test", hangoutLink: "https://meet.google.com/abc-defg-hij" });
+    }
+    return new Response("Unexpected external request", { status: 500 });
+  };
+
+  try {
+    const future = new Date(Date.now() + 72 * 60 * 60 * 1000).toISOString();
+    const contactResponse = await post(
+      "/api/contact",
+      { name: "Test Client", email: "test@example.com", organisation: "Example Ltd", message: "Advisory enquiry", privacy_consent: "agreed" },
+      { RESEND_API_KEY: "test_key", CONTACT_RECIPIENT_EMAIL: "hello@kmfinco.com", CONTACT_FROM_EMAIL: "website@kmfinco.com" },
+    );
+    assert.equal(contactResponse.status, 200);
+    assert.deepEqual(await contactResponse.json(), { ok: true, channel: "email" });
+
+    const bookingResponse = await post(
+      "/api/book",
+      { name: "Test Client", email: "test@example.com", organisation: "Example Ltd", context: "Strategy discussion", start: future, duration: 30, timezone: "Europe/Malta", privacy_consent: "agreed" },
+      { GOOGLE_CALENDAR_CLIENT_ID: "client", GOOGLE_CALENDAR_CLIENT_SECRET: "secret", GOOGLE_CALENDAR_REFRESH_TOKEN: "refresh", GOOGLE_CALENDAR_ID: "primary", GOOGLE_CALENDAR_TIMEZONE: "Europe/Malta" },
+    );
+    assert.equal(bookingResponse.status, 200);
+    assert.deepEqual(await bookingResponse.json(), {
+      ok: true,
+      eventId: "event_123",
+      calendarUrl: "https://calendar.google.com/event?eid=test",
+      meetUrl: "https://meet.google.com/abc-defg-hij",
+    });
+
+    assert.ok(requests.some(({ url }) => url.endsWith("/freeBusy")), "booking should check free/busy before creating an event");
+    const createEvent = requests.find(({ url }) => url.includes("/events?conferenceDataVersion=1"));
+    assert.ok(createEvent, "booking should create a Calendar event with conference data enabled");
+    assert.match(createEvent.body, /hangoutsMeet/);
+    assert.match(createEvent.body, /test@example\.com/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });

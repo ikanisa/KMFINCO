@@ -1,0 +1,25 @@
+{
+  "mobileMenuState": {
+    "ariaExpanded": "true",
+    "visibleNavTexts": [
+      "Expertise",
+      "Who we help",
+      "Insights",
+      "About",
+      "Start a conversation"
+    ]
+  },
+  "invalidState": {
+    "activeName": "name",
+    "invalidNames": [
+      "name",
+      "email",
+      "message"
+    ],
+    "successVisible": false
+  },
+  "successState": {
+    "formExists": false,
+    "successText": "Thank you. Your note is ready for our team.We’ll review the context you shared and connect you with the most relevant adviser.Send another note"
+  }
+}
