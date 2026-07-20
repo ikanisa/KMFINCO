@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { pageMetadata } from "../../lib/seo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
@@ -49,7 +48,6 @@ export default function WhoWeWorkWithPage() {
           <p>Different organisations face different pressures. We start with your context, connect the right expertise and stay focused on the decisions that matter.</p>
           <div className="client-hero-actions">
             <PrimaryCta className="primary-button" />
-            <Link className="text-link" href="/services">Explore our expertise</Link>
           </div>
         </div>
         <div className="client-hero-visual">

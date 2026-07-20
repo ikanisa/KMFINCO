@@ -86,7 +86,7 @@ export function MeetingScheduler() {
       location: "Google Meet",
       details: [
         `Consultation topic: ${topic}`,
-        `Requested by: ${booking.name}`,
+        booking.name ? `Requested by: ${booking.name}` : "",
         `Email: ${booking.email}`,
         booking.organisation ? `Organisation: ${booking.organisation}` : "",
         "Please add Google Meet conferencing before saving the invitation.",
@@ -104,9 +104,9 @@ export function MeetingScheduler() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     setBooking({
-      name: String(data.get("name") ?? ""),
-      email: String(data.get("email") ?? ""),
-      organisation: String(data.get("organisation") ?? ""),
+      name: String(data.get("name") ?? "").trim(),
+      email: String(data.get("email") ?? "").trim(),
+      organisation: String(data.get("organisation") ?? "").trim(),
     });
     setStep(3);
   }
@@ -192,10 +192,10 @@ export function MeetingScheduler() {
             <small>Africa/Kigali · Google Meet · 45 minutes</small>
           </div>
           <div className="field-row">
-            <label className="scheduler-field"><span>Full name</span><input name="name" autoComplete="name" required /></label>
+            <label className="scheduler-field"><span>Full name (optional)</span><input name="name" autoComplete="name" /></label>
             <label className="scheduler-field"><span>Work email</span><input type="email" name="email" autoComplete="email" required /></label>
           </div>
-          <label className="scheduler-field"><span>Organisation</span><input name="organisation" autoComplete="organization" /></label>
+          <label className="scheduler-field"><span>Organisation (optional)</span><input name="organisation" autoComplete="organization" /></label>
           <label className="scheduler-consent">
             <input type="checkbox" required />
             <span>I agree to the <Link href="/privacy">Privacy Policy</Link> and <Link href="/terms">Terms of Use</Link>.</span>

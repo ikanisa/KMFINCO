@@ -526,9 +526,7 @@ h1 {
   color: var(--ink-soft);
 }
 
-.expertise-detail a,
-.text-link,
-.read-more {
+.expertise-detail a {
   display: inline-flex;
   align-items: center;
   min-height: 24px;
@@ -642,16 +640,6 @@ h1 {
   color: var(--ink-soft);
   font-size: 12px;
   line-height: 1.45;
-}
-
-.expertise-card a {
-  min-height: 28px;
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  color: var(--green);
-  font-size: 12px;
-  font-weight: 700;
 }
 
 .consulting-section {
@@ -1538,7 +1526,6 @@ h1 {
 .service-index-card .service-index-icon { color: var(--green); }
 .service-index-card h2 { margin: 10px 0; font-size: 39px; line-height: 1; }
 .service-index-card p { max-width: 560px; color: var(--ink-soft); font-size: 14px; }
-.service-index-card strong { color: var(--green); font-size: 12px; }
 .service-index-card:last-child { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
 
 .about-principles { padding: 140px 0; }
