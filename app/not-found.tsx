@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PrimaryCta } from "./components/PrimaryCta";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 
@@ -11,8 +12,8 @@ export default function NotFound() {
         <h1>This page is no longer in view.</h1>
         <p>The link may have moved, or the address may be incomplete. Return to KM FINCO or start a conversation with our team.</p>
         <div className="not-found-actions">
-          <Link className="primary-button" href="/">Return home</Link>
-          <Link className="text-link" href="/contact">Contact KM FINCO</Link>
+          <PrimaryCta className="primary-button" />
+          <Link className="text-link" href="/">Return home</Link>
         </div>
       </section>
       <SiteFooter />

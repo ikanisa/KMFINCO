@@ -1,4 +1,5 @@
 import { serverEnv } from "../../../lib/server-env";
+import { siteConfig } from "../../../lib/site-config";
 
 type BookingPayload = {
   name?: unknown;
@@ -105,7 +106,12 @@ export async function POST(request: Request) {
           description: `Website booking request\n\nName: ${name}\nEmail: ${email}\nOrganisation: ${organisation || "Not provided"}\n\nContext:\n${context || "Not provided"}`,
           start: { dateTime: start.toISOString(), timeZone: calendarTimezone },
           end: { dateTime: end.toISOString(), timeZone: calendarTimezone },
-          attendees: [{ email, displayName: name }],
+          attendees: [
+            { email, displayName: name },
+            ...siteConfig.bookingRecipients
+              .filter((recipient) => recipient !== email)
+              .map((recipient) => ({ email: recipient })),
+          ],
           conferenceData: {
             createRequest: { requestId: crypto.randomUUID(), conferenceSolutionKey: { type: "hangoutsMeet" } },
           },

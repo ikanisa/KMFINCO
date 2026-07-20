@@ -7,6 +7,8 @@ export const siteConfig = {
   whatsappUrl: "https://wa.me/35679428604",
   linkedInUrl: process.env.NEXT_PUBLIC_LINKEDIN_URL || "",
   bookingUrl: "/book",
+  primaryCtaLabel: "Book a Meeting",
+  bookingRecipients: ["bosco@ikanisa.com", "kmifsud@kmconsultants.com.mt"],
   appointmentScheduleUrl: process.env.NEXT_PUBLIC_GOOGLE_BOOKING_URL || "",
   serviceArea:
     "Serving international organisations, investors and privately held businesses across borders. Meetings are available online and by appointment.",
@@ -32,7 +34,7 @@ export function googleCalendarTemplateUrl({
     dates: `${compactUtc(start)}/${compactUtc(end)}`,
     details: `Requested by ${name} (${email}).\n\nContext: ${context || "Advisory conversation"}\n\nPlease add Google Meet before sending if it is not added automatically.`,
     location: "Google Meet",
-    add: siteConfig.email,
   });
+  siteConfig.bookingRecipients.forEach((recipient) => params.append("add", recipient));
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }

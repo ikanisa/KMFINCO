@@ -9,6 +9,8 @@ Updated: 20 July 2026
 - Official WhatsApp link: `https://wa.me/35679428604`
 - First-party booking page at `/book`
 - Native Google Calendar API integration that exchanges an OAuth refresh token, checks free/busy availability, creates the event, adds the prospective client as an attendee, requests a Google Meet conference and sends Calendar updates
+- Uniform “Book a Meeting” primary CTA across the website, linked to `/book`
+- Calendar invitations sent to the prospective client, `bosco@ikanisa.com` and `kmifsud@kmconsultants.com.mt`
 - Correctly dated, pre-addressed Google Calendar fallback when the production Calendar credentials are unavailable
 - Optional Google Calendar Appointment Schedule URL
 - Contact form that opens a prepared `mailto:` draft without server-side email delivery or submission storage

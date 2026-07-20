@@ -3,6 +3,7 @@ import { pageMetadata } from "../../lib/seo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 import { SectionVisual } from "../components/SectionVisual";
+import { PrimaryCta } from "../components/PrimaryCta";
 
 export const metadata = pageMetadata({ title: "About", description: "A senior-led multidisciplinary advisory firm built around clarity, connection and practical progress.", path: "/about" });
 
@@ -15,7 +16,7 @@ export default function AboutPage() {
           <p className="eyebrow">About KM FINCO</p>
           <h1>Close enough to understand. Experienced enough to challenge.</h1>
           <p>We bring assurance, consulting and financial expertise together around the decisions that shape organisations, investments and families.</p>
-          <Link className="primary-button" href="/contact">Meet the right adviser</Link>
+          <PrimaryCta className="primary-button" />
         </div>
         <div className="subpage-image-wrap"><img src="/about-team.webp" alt="A multidisciplinary team of senior advisers in discussion" className="subpage-image" width="1600" height="1000" loading="eager" fetchPriority="high" decoding="async" /></div>
       </section>

@@ -3,6 +3,7 @@ import { pageMetadata } from "../../lib/seo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 import { SectionVisual } from "../components/SectionVisual";
+import { PrimaryCta } from "../components/PrimaryCta";
 
 export const metadata = pageMetadata({
   title: "Expertise",
@@ -48,7 +49,7 @@ export default function ServicesPage() {
           <p className="section-index">Not sure where to start?</p>
           <h2>Tell us what is changing.</h2>
           <p>We’ll bring the right mix of expertise around your priorities.</p>
-          <Link className="primary-button" href="/contact">Start a conversation</Link>
+          <PrimaryCta className="primary-button" />
         </div>
         <SectionVisual src="/services-cta-v2.webp" alt="A client and multidisciplinary adviser agreeing the right starting point" className="subpage-cta-visual" />
       </section>

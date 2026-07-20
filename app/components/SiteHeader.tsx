@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { PrimaryCta } from "./PrimaryCta";
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ export function SiteHeader() {
         <Link href="/#who-we-help" onClick={closeMenu}>Who we help</Link>
         <Link href="/insights" onClick={closeMenu}>Insights</Link>
         <Link href="/about" onClick={closeMenu}>About</Link>
-        <Link className="nav-cta" href="/contact" onClick={closeMenu}>Start a conversation</Link>
+        <PrimaryCta className="nav-cta" onClick={closeMenu} />
       </nav>
       <button
         className="menu-toggle"

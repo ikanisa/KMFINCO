@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "../../lib/site-config";
 import { TrackedLink } from "./TrackedLink";
+import { PrimaryCta } from "./PrimaryCta";
 
 export function SiteFooter() {
   return (
@@ -22,7 +23,7 @@ export function SiteFooter() {
           <TrackedLink href={`mailto:${siteConfig.email}`} event="contact_email_click">{siteConfig.email}</TrackedLink>
           <TrackedLink href={`tel:${siteConfig.phoneE164}`} event="contact_phone_click">{siteConfig.phoneDisplay}</TrackedLink>
           <TrackedLink href={siteConfig.whatsappUrl} event="contact_whatsapp_click" target="_blank" rel="noreferrer">WhatsApp</TrackedLink>
-          <TrackedLink href={siteConfig.bookingUrl} event="booking_click">Book a meeting</TrackedLink>
+          <PrimaryCta />
           {siteConfig.linkedInUrl && <TrackedLink href={siteConfig.linkedInUrl} event="linkedin_click" target="_blank" rel="noreferrer">LinkedIn</TrackedLink>}
         </div>
       </div>

@@ -20,6 +20,8 @@ A premium multi-page advisory website combining audit, assurance, management con
 ## First-party integrations
 
 - `/api/book` validates meeting requests, checks Google Calendar free/busy availability, and creates a Calendar event with Google Meet and attendee notifications.
+- Every primary website action uses the label “Book a Meeting” and routes to `/book`.
+- Confirmed Calendar events invite the prospective client, `bosco@ikanisa.com`, and `kmifsud@kmconsultants.com.mt` with `sendUpdates=all`.
 - The contact form does not use a server-side email service or store submissions. It opens a pre-addressed draft in the visitor's email application.
 - Booking fails safely when production credentials are absent by producing a dated Google Calendar invitation.
 - Required hosted values are listed in `.env.example` and `GO_LIVE_IMPLEMENTATION.md`.

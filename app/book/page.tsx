@@ -23,7 +23,7 @@ export default function BookPage() {
           <div className="booking-assurances">
             <span>Calendar availability checked</span>
             <span>Google Meet created on confirmation</span>
-            <span>Invitation sent to your work email</span>
+            <span>Invitation sent to you and KM FINCO</span>
           </div>
           <p className="booking-alternative">Prefer a quick message? <TrackedLink href={siteConfig.whatsappUrl} event="contact_whatsapp_click" target="_blank" rel="noreferrer">Contact KM FINCO on WhatsApp</TrackedLink>.</p>
         </div>

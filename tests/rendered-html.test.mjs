@@ -53,6 +53,7 @@ test("server-renders the KM FINCO homepage and social metadata", async () => {
   assert.match(html, /Management Consulting/);
   assert.match(html, /Internal audit &amp; controls/);
   assert.match(html, /src="\/advisory-team\.webp"/);
+  assert.match(html, /href="\/book"[^>]*>Book a Meeting</i);
 });
 
 test("server-renders dedicated service and contact routes", async () => {
@@ -153,7 +154,7 @@ test("renders launch contact, privacy and not-found requirements", async () => {
 
   assert.equal(bookingResponse.status, 200);
   assert.match(booking, /Choose a time to make the next decision clearer/i);
-  assert.match(booking, /Request this meeting/i);
+  assert.match(booking, /Book a Meeting/);
   assert.match(booking, /Google Meet created on confirmation/i);
 
   assert.equal(privacyResponse.status, 200);
@@ -209,8 +210,11 @@ test("booking API creates conflict-checked Google Meet events", async () => {
     assert.ok(requests.some(({ url }) => url.endsWith("/freeBusy")), "booking should check free/busy before creating an event");
     const createEvent = requests.find(({ url }) => url.includes("/events?conferenceDataVersion=1"));
     assert.ok(createEvent, "booking should create a Calendar event with conference data enabled");
+    assert.match(createEvent.url, /sendUpdates=all/);
     assert.match(createEvent.body, /hangoutsMeet/);
     assert.match(createEvent.body, /test@example\.com/);
+    assert.match(createEvent.body, /bosco@ikanisa\.com/);
+    assert.match(createEvent.body, /kmifsud@kmconsultants\.com\.mt/);
   } finally {
     globalThis.fetch = originalFetch;
   }

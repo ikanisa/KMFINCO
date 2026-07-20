@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ContactForm } from "./components/ContactForm";
+import { PrimaryCta } from "./components/PrimaryCta";
 import { SectionVisual } from "./components/SectionVisual";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
@@ -91,9 +91,7 @@ export default function Home() {
             Integrated audit, assurance, management consulting, corporate, tax,
             accounting and investment expertise for businesses, investors and families.
           </p>
-          <Link className="primary-button" href="/contact">
-            Start a conversation
-          </Link>
+          <PrimaryCta className="primary-button" />
         </div>
 
         <div className="hero-visual" aria-label="Advisers in a strategic discussion">
@@ -233,12 +231,16 @@ export default function Home() {
 
       <section className="contact-section section-shell" id="contact" aria-labelledby="contact-title">
         <div className="contact-copy">
-          <p className="section-index light">Start a conversation</p>
+          <p className="section-index light">Book a Meeting</p>
           <h2 id="contact-title">What would you like to make clearer?</h2>
           <p>Share a little about the decision, challenge or opportunity in front of you. We’ll connect you with the right specialist.</p>
           <SectionVisual src="/home-contact-v2.webp" alt="A calm first conversation between a senior adviser and a prospective client" className="contact-section-visual" />
         </div>
-        <ContactForm />
+        <div className="contact-page-form">
+          <h3>Choose a convenient time.</h3>
+          <p>Use our Google Calendar booking flow to request a 30 or 60-minute advisory meeting with Google Meet.</p>
+          <PrimaryCta className="primary-button" />
+        </div>
       </section>
       <SiteFooter />
     </main>
