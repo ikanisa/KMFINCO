@@ -7,7 +7,7 @@ Baseline audited commit: `7980500b67dc3e6ca77f378cbe87632d5488edf5`
 
 ## Post-audit implementation status
 
-The identified repository-level gaps have been implemented on branch `codex/go-live-readiness`: direct email, phone and WhatsApp channels; a contact form that prepares a `mailto:` draft without server-side email delivery or storage; a native Google Calendar/Meet booking route; service-area wording; privacy and consent; consent-gated analytics hooks; canonical domain/SEO updates; Search Console verification support; a verified-only LinkedIn hook; and a branded 404 page. The expanded build, lint, browser and seven-test validation suite passes.
+The identified repository-level gaps have been implemented on branch `codex/go-live-readiness`: informational public email text, direct phone and WhatsApp channels; a native Google Calendar/Meet booking route; service-area wording; privacy and consent; consent-gated analytics hooks; canonical domain/SEO updates; Search Console verification support; a verified-only LinkedIn hook; and a branded 404 page. No contact form, `mailto:` action or website email workflow is included. The expanded build, lint, browser and seven-test validation suite passes.
 
 Public launch remains blocked by external account ownership and production values rather than missing repository code. The exact activation checklist is maintained in `GO_LIVE_IMPLEMENTATION.md`.
 
@@ -47,20 +47,19 @@ Go-live is not fully ready for a public business launch because the production h
    - Sites connector returned `project_not_found` for `appgprj_6a5e28dbdfac81919b9393e0d6fdd5d8`.
    - Action needed: confirm hosting owner/account, access policy, and desired public/custom domain.
 
-2. Contact form does not transmit or persist leads.
-   - `ContactForm` calls `event.preventDefault()` and then sets a local success state.
-   - Action needed: connect an approved destination such as email, CRM, database, or serverless form endpoint.
+2. Email workflow intentionally excluded.
+   - The unsupported contact form and every `mailto:` action have been removed.
+   - The configured public email is informational text only and the website does not transmit or store email enquiries.
 
-3. Direct contact routes are missing.
-   - No visible email, phone, WhatsApp, calendar booking, physical address, map link, or social/business profile links were found in the rendered pages.
-   - Action needed: add verified contact details and fallback channels.
+3. Direct contact routes are implemented.
+   - Phone, official WhatsApp and native Google Calendar booking are available, with the public email shown as non-interactive text.
+   - The LinkedIn link remains hidden until an official company profile is verified.
 
 ## High-priority readiness gaps
 
-- Add a real contact submission backend with spam protection and operational ownership.
 - Add meeting booking via Google Calendar appointment schedule, Calendly, Cal.com, or another approved booking flow.
 - Add WhatsApp contact link using an approved official number.
-- Add direct `mailto:` and `tel:` links.
+- Keep the public email informational only; no website email integration is supported.
 - Add office address, jurisdictions served, and Google Maps link if appropriate.
 - Add privacy policy and cookie/analytics disclosure if analytics, remarketing, or form tracking is added.
 - Add analytics/conversion tracking after privacy/legal approval.

@@ -4,7 +4,7 @@ Updated: 20 July 2026
 
 ## Implemented in the website
 
-- Public email and `mailto:` links: `hello@kmfinco.com`
+- Public email shown as informational text only: `hello@kmfinco.com`
 - Phone and `tel:` links: `+35679428604`
 - Official WhatsApp link: `https://wa.me/35679428604`
 - First-party booking page at `/book`
@@ -13,11 +13,10 @@ Updated: 20 July 2026
 - Calendar invitations sent to the prospective client, `bosco@ikanisa.com` and `kmifsud@kmconsultants.com.mt`
 - Correctly dated, pre-addressed Google Calendar fallback when the production Calendar credentials are unavailable
 - Optional Google Calendar Appointment Schedule URL
-- Contact form that opens a prepared `mailto:` draft without server-side email delivery or submission storage
 - Cross-border service-area statement without inventing an office address
 - Privacy policy at `/privacy`
-- Required enquiry-form privacy consent
-- Consent-gated Google Analytics 4 loader and conversion events for email, phone, WhatsApp, booking, LinkedIn and form submission
+- Required booking-form privacy consent
+- Consent-gated Google Analytics 4 loader and conversion events for phone, WhatsApp, booking and LinkedIn actions
 - Production canonical URL, sitemap, robots and structured data updated to `https://kmfinco.com`
 - Google Search Console verification metadata hook
 - Configurable verified LinkedIn company-profile link
@@ -30,7 +29,7 @@ The website reads these values from the hosting environment. Add them only after
 
 | Requirement | Environment value | Current safe behaviour |
 | --- | --- | --- |
-| Public mailbox | `NEXT_PUBLIC_CONTACT_EMAIL` | Defaults to `hello@kmfinco.com`; mailbox and MX delivery must be provisioned and tested |
+| Public email text | `NEXT_PUBLIC_CONTACT_EMAIL` | Defaults to `hello@kmfinco.com`; displayed without a link, form or website email workflow |
 | Google Calendar API | `GOOGLE_CALENDAR_CLIENT_ID`, `GOOGLE_CALENDAR_CLIENT_SECRET`, `GOOGLE_CALENDAR_REFRESH_TOKEN`, `GOOGLE_CALENDAR_ID`, `GOOGLE_CALENDAR_TIMEZONE` | Produces a correctly dated Calendar invitation; credentials activate free/busy checking, event creation, attendee notifications and Google Meet |
 | Public appointment schedule | `NEXT_PUBLIC_GOOGLE_BOOKING_URL` | Optional secondary route to KM FINCO's Google Appointment Schedule |
 | LinkedIn company page | `NEXT_PUBLIC_LINKEDIN_URL` | Link remains hidden to avoid publishing an unverified profile |
@@ -56,7 +55,7 @@ The website reads these values from the hosting environment. Add them only after
 - Seven rendered-route and server-integration test suites pass, including contact channels, privacy, canonical domain, sitemap, robots, 404 behaviour, validation, safe unconfigured booking behaviour, free/busy checking and Google Meet event creation.
 - The public booking endpoint also enforces same-origin browser submissions, a per-IP request window, no-store responses and production security headers.
 - Browser QA passes at desktop and mobile widths with no horizontal overflow or console errors.
-- Contact form requires name, work email, message and privacy consent.
+- No contact form, `mailto:` action, email draft workflow, server-side email delivery or website submission storage is present.
 - Analytics does not load without both a configured GA4 ID and visitor consent.
 - The booking form was completed in browser QA and produced a dated, pre-addressed Google Calendar invitation with the selected 30-minute time.
 - Google Drive was searched for authoritative KMFINCO identity and activation data. The available project brief confirms the combined service model but contains no verified office address, LinkedIn URL, mailbox record, analytics ID, Search Console token or Appointment Schedule URL.

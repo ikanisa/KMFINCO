@@ -1,13 +1,11 @@
 export type ConversionEvent =
-  | "contact_email_click"
   | "contact_phone_click"
   | "contact_whatsapp_click"
   | "booking_click"
   | "booking_form_submit"
   | "booking_created"
   | "booking_fallback_open"
-  | "linkedin_click"
-  | "contact_form_submit";
+  | "linkedin_click";
 
 declare global {
   interface Window {

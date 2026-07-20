@@ -20,7 +20,7 @@ export default function PrivacyPage() {
 
         <section>
           <h2>Who we are</h2>
-          <p>KM FINCO provides professional advisory services to organisations, investors and privately held businesses operating across borders. Questions about this policy can be sent to <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.</p>
+          <p>KM FINCO provides professional advisory services to organisations, investors and privately held businesses operating across borders. Privacy questions can be directed to {siteConfig.email}.</p>
         </section>
         <section>
           <h2>Information we collect</h2>
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
         </section>
         <section>
           <h2>Your choices and rights</h2>
-          <p>You may ask to access, correct or delete your personal information, object to or restrict certain processing, withdraw consent, or raise a concern with an applicable data-protection authority. Contact us at <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a> to make a request.</p>
+          <p>You may ask to access, correct or delete your personal information, object to or restrict certain processing, withdraw consent, or raise a concern with an applicable data-protection authority. Use {siteConfig.email} for privacy requests.</p>
         </section>
         <section>
           <h2>Analytics and local storage</h2>

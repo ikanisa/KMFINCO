@@ -20,7 +20,7 @@ export function SiteFooter() {
           <Link href="/privacy">Privacy</Link>
         </nav>
         <div className="footer-contact">
-          <TrackedLink href={`mailto:${siteConfig.email}`} event="contact_email_click">{siteConfig.email}</TrackedLink>
+          <span>{siteConfig.email}</span>
           <TrackedLink href={`tel:${siteConfig.phoneE164}`} event="contact_phone_click">{siteConfig.phoneDisplay}</TrackedLink>
           <TrackedLink href={siteConfig.whatsappUrl} event="contact_whatsapp_click" target="_blank" rel="noreferrer">WhatsApp</TrackedLink>
           <PrimaryCta />

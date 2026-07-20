@@ -939,27 +939,12 @@ h1 {
   box-shadow: none;
 }
 
-.contact-form {
-  display: grid;
-  gap: 18px;
-}
-
 .field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
 }
 
-.contact-form label {
-  display: grid;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.contact-form input,
-.contact-form textarea,
 .booking-form input,
 .booking-form textarea,
 .booking-form select {
@@ -972,20 +957,10 @@ h1 {
   transition: background 160ms ease, border-color 160ms ease;
 }
 
-.contact-form input {
-  height: 52px;
-  padding: 0 14px;
-}
-
 .booking-form input,
 .booking-form select {
   height: 52px;
   padding: 0 14px;
-}
-
-.contact-form textarea {
-  padding: 14px;
-  resize: vertical;
 }
 
 .booking-form textarea {
@@ -993,8 +968,6 @@ h1 {
   resize: vertical;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus,
 .booking-form input:focus,
 .booking-form textarea:focus,
 .booking-form select:focus {
@@ -1128,34 +1101,6 @@ h1 {
   margin: 0;
   color: #ffe0d9;
   font-size: 13px;
-}
-
-.form-success {
-  align-self: center;
-  padding: 38px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-.form-success h3 {
-  margin: 20px 0 10px;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.form-success p {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.form-success button {
-  border: 0;
-  background: transparent;
-  color: white;
-  text-decoration: underline;
-  cursor: pointer;
 }
 
 .site-footer {
@@ -1528,6 +1473,36 @@ h1 {
 .contact-page-intro img { width: 100%; height: 360px; margin-top: 50px; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-soft); }
 .contact-page-form { align-self: start; padding: 50px; border-radius: 26px; background: linear-gradient(145deg, #174f43 0%, #0f392f 100%); box-shadow: var(--shadow-soft); color: white; }
 
+.contact-booking-card {
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-booking-card h2 {
+  margin: 18px 0;
+  color: white;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(42px, 4vw, 60px);
+  font-weight: 500;
+  line-height: 0.98;
+}
+
+.contact-booking-card > p:not(.eyebrow) {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.contact-booking-card .primary-button {
+  width: fit-content;
+  margin-top: 28px;
+}
+
+.contact-booking-card .contact-card-note {
+  margin-top: 24px;
+  font-size: 12px;
+}
+
 .contact-options {
   margin-top: 34px;
   display: grid;
@@ -1535,7 +1510,7 @@ h1 {
   gap: 12px;
 }
 
-.contact-options a {
+.contact-options > * {
   min-height: 92px;
   padding: 18px;
   display: grid;

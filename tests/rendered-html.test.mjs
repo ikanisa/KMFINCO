@@ -171,11 +171,13 @@ test("renders launch contact, privacy and not-found requirements", async () => {
   ]);
 
   assert.equal(contactResponse.status, 200);
-  assert.match(contact, /mailto:hello@kmfinco\.com/i);
+  assert.match(contact, /hello@kmfinco\.com/i);
+  assert.doesNotMatch(contact, /mailto:/i);
+  assert.doesNotMatch(contact, /Open email draft|Prepare another email/i);
   assert.match(contact, /tel:\+35679428604/i);
   assert.match(contact, /wa\.me\/35679428604/i);
   assert.match(contact, /Google Calendar/i);
-  assert.match(contact, /privacy policy/i);
+  assert.match(contact, /Book a Meeting/i);
 
   assert.equal(bookingResponse.status, 200);
   assert.match(booking, /Choose a time to make the next decision clearer/i);
