@@ -175,7 +175,6 @@ export default function Home() {
                 <ul>
                   {capability.items.slice(0, 3).map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <Link href={`/services/${capability.slug}`}>Explore this service</Link>
               </article>
             );
           })}
@@ -189,7 +188,6 @@ export default function Home() {
             We help leaders see risk clearly, strengthen the way work gets done and
             move from strategy to measurable action with confidence.
           </p>
-          <Link className="text-link" href="/services/management-consulting">Explore management consulting</Link>
         </div>
         <SectionVisual src="/home-consulting-v2.webp" alt="A senior consultant facilitating a risk and transformation workshop" className="consulting-visual" />
         <div className="consulting-grid">
@@ -235,7 +233,6 @@ export default function Home() {
             <Link href="/insights" key={insight.title} className={`insight-card insight-${index + 1}`}>
               <span>{insight.category}</span>
               <h3>{insight.title}</h3>
-              <span className="read-more">Read perspective</span>
             </Link>
           ))}
         </div>

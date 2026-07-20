@@ -45,7 +45,6 @@ export default function ServicesPage() {
                 <span className={`item-icon service-index-icon ${service.tone}`} aria-hidden="true"><ServiceIcon size={21} weight="regular" /></span>
                 <h2>{service.title}</h2>
                 <p>{service.copy}</p>
-                <strong>Explore service</strong>
               </div>
             </Link>
           );

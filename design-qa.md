@@ -180,4 +180,29 @@ The multi-page extension is visibly coherent across all ten routes. Every conten
 - The type scale, line breaks, image size, crop, section spacing, colors, navigation and content remain unchanged.
 - Production build, rendered-HTML tests, lint and diff checks pass after the alignment correction.
 
+## Annotation pass 9 — optional booking identity fields
+
+- Source visual truth: the user’s 20 July 2026 browser annotations marking Full name and Organisation as optional in the booking-details step.
+- Implementation evidence: `qa/optional-booking-fields/mobile-details-390x844.png` and `qa/optional-booking-fields/completed-with-email-only-1199x734.png`.
+- Full name and Organisation are now explicitly labelled “(optional)” and have no `required` constraint. Work email and policy consent remain required.
+- A booking completed successfully with both optional fields empty. The generated Google Calendar URL retains the work email and omits empty `Requested by` and `Organisation` lines.
+- Desktop and mobile states have no horizontal overflow; existing layout, typography, colors and booking progression remain unchanged.
+- Production build, rendered-HTML tests, lint and diff checks pass. Interactive browser QA covers both optional labels and the email-only completion path.
+
+## Annotation pass 10 — expertise card CTA removal
+
+- Source visual truth: the user’s 20 July 2026 browser annotation selecting the repeated “Explore this service” links in the homepage expertise cards and requesting their removal.
+- Removed the repeated CTA from all five expertise cards and deleted the now-unused card-link styling.
+- Browser checks confirm five cards and zero links inside the expertise-card grid at both 1199 × 734 and 390 × 844, with no mobile horizontal overflow.
+- The service navigation in the capability rail remains available, so removing these duplicate links does not remove access to any service page.
+- Production build, six rendered-HTML tests, lint and diff checks pass.
+
+## Annotation pass 11 — redundant exploratory CTA removal
+
+- Source visual truth: the user’s 20 July 2026 request to remove the repeated “Explore this service”, “Explore management consulting”, “Read perspective”, “Explore service” and “Explore our expertise” prompts.
+- Removed those labels from the homepage, Services, About and Who we work with pages. Linked service and insight cards remain directly clickable, while primary “Book a Meeting” actions and global navigation remain intact.
+- Deleted styling used only by the removed exploratory labels and added rendered-HTML regression coverage for all five phrases.
+- Browser checks at 1199 × 734 and 390 × 844 confirm none of the five labels remain across the four affected routes and no page introduces horizontal overflow.
+- Production build, seven rendered-HTML tests, lint and diff checks pass.
+
 final result: passed

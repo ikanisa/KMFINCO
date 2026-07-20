@@ -48,7 +48,6 @@ export default function WhoWeWorkWithPage() {
           <p>Different organisations face different pressures. We start with your context, connect the right expertise and stay focused on the decisions that matter.</p>
           <div className="client-hero-actions">
             <Link className="primary-button" href="/contact">Book a Meeting</Link>
-            <Link className="text-link" href="/services">Explore our expertise</Link>
           </div>
         </div>
         <div className="client-hero-visual">

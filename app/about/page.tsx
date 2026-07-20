@@ -36,7 +36,7 @@ export default function AboutPage() {
 
       <section className="about-story section-shell">
         <div className="about-story-image"><img src="/about-story-v2.webp" alt="A broader advisory team connecting decisions across service boundaries" width="1536" height="1024" loading="lazy" decoding="async" /></div>
-        <div><p className="section-index">One firm, broader perspective</p><h2>Built for decisions that cross boundaries.</h2><p>Important decisions rarely fit neatly inside one service line. Reporting affects tax. Strategy changes risk. Ownership shapes governance. Investment priorities connect to family priorities. Our model keeps those perspectives together.</p><Link className="text-link" href="/services">Explore our expertise</Link></div>
+        <div><p className="section-index">One firm, broader perspective</p><h2>Built for decisions that cross boundaries.</h2><p>Important decisions rarely fit neatly inside one service line. Reporting affects tax. Strategy changes risk. Ownership shapes governance. Investment priorities connect to family priorities. Our model keeps those perspectives together.</p></div>
       </section>
       <SiteFooter />
     </main>

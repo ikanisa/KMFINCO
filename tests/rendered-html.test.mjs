@@ -130,6 +130,26 @@ test("renders the insights hero without the removed Perspectives label", async (
   assert.doesNotMatch(html, />Perspectives</);
 });
 
+test("omits redundant exploratory CTA labels", async () => {
+  const routes = ["/", "/services", "/about", "/who-we-work-with"];
+  const removedLabels = [
+    "Explore this service",
+    "Explore management consulting",
+    "Read perspective",
+    "Explore service",
+    "Explore our expertise",
+  ];
+
+  for (const pathname of routes) {
+    const response = await render(pathname);
+    assert.equal(response.status, 200, `${pathname} should render`);
+    const html = await response.text();
+    for (const label of removedLabels) {
+      assert.doesNotMatch(html, new RegExp(label, "i"), `${pathname} should not render ${label}`);
+    }
+  }
+});
+
 test("every content section renders a distinct relevant image", async () => {
   const routeExpectations = [
     ["/", 8, ["home-capabilities-v2.webp", "home-expertise-v2.webp", "home-consulting-v2.webp", "home-audience-v2.webp", "home-approach-v2.webp", "home-insights-v2.webp", "home-contact-v2.webp"]],
