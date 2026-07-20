@@ -131,6 +131,7 @@ test("server-renders dedicated service, audience, booking and legal routes", asy
   assert.match(consulting, /Internal controls/);
   assert.match(audience, /Advice shaped around your reality\./);
   assert.match(audience, /Businesses &amp; leadership teams/);
+  assert.doesNotMatch(audience, /Built around your context/i);
   assert.match(audience, /src="\/who-we-work-with-hero-v2\.webp"/);
   assert.match(contact, /Choose a time that works\./);
   assert.match(contact, /creates Google Meet/);

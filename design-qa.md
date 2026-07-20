@@ -219,4 +219,11 @@ The multi-page extension is visibly coherent across all ten routes. Every conten
 - Global navigation and the dedicated booking route remain available without repeating an action inside every editorial card.
 - Rendered-HTML regression coverage now verifies that all five article cards contain no CTA links.
 
+## Annotation pass 14 — audience-section eyebrow removal
+
+- Source visual truth: the user’s live-site annotation selecting the “Built around your context” eyebrow above the client-group cards and requesting its deletion.
+- Removed the eyebrow while preserving the established desktop positions of the section heading and supporting paragraph.
+- The responsive single-column layout explicitly returns both remaining text blocks to the first grid column, preventing an implicit empty mobile column.
+- Rendered-HTML regression coverage now protects the label removal.
+
 final result: passed

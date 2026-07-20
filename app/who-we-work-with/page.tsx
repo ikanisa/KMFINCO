@@ -61,7 +61,6 @@ export default function WhoWeWorkWithPage() {
 
       <section className="client-groups section-shell" aria-labelledby="client-groups-title">
         <div className="client-groups-heading">
-          <p className="eyebrow">Built around your context</p>
           <h2 id="client-groups-title">Different starting points. The same commitment to clarity.</h2>
           <p>Our best work begins with a close understanding of where you are, what is changing and what a useful outcome looks like.</p>
         </div>
