@@ -18,7 +18,7 @@ export default function InsightsPage() {
     <main>
       <SiteHeader />
       <section className="index-hero image-index-hero insights-hero">
-        <div><p className="eyebrow">Perspectives</p><h1>Useful thinking for consequential decisions.</h1><p>Clear, practical perspectives from across assurance, consulting, risk, tax, governance and investment.</p></div>
+        <div><h1>Useful thinking for consequential decisions.</h1><p>Clear, practical perspectives from across assurance, consulting, risk, tax, governance and investment.</p></div>
         <img src="/insights-hero.webp" alt="Advisers reviewing research and discussing an emerging idea" width="1600" height="1000" loading="eager" fetchPriority="high" decoding="async" />
       </section>
       <section className="article-grid section-shell">

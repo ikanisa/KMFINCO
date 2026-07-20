@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { Binoculars } from "@phosphor-icons/react/dist/ssr/Binoculars";
+import { CirclesThreePlus } from "@phosphor-icons/react/dist/ssr/CirclesThreePlus";
+import { Target } from "@phosphor-icons/react/dist/ssr/Target";
 import { pageMetadata } from "../../lib/seo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
@@ -12,7 +15,7 @@ export default function AboutPage() {
       <SiteHeader />
       <section className="subpage-hero accent-green">
         <div className="subpage-copy">
-          <p className="eyebrow">About KM FINCO</p>
+          <p className="eyebrow">About KMFINCO</p>
           <h1>Close enough to understand. Experienced enough to challenge.</h1>
           <p>We bring assurance, consulting and financial expertise together around the decisions that shape organisations, investments and families.</p>
           <Link className="primary-button" href="/contact">Meet the right adviser</Link>
@@ -25,9 +28,9 @@ export default function AboutPage() {
         <h2>Senior attention. Connected expertise. Straightforward advice.</h2>
         <SectionVisual src="/about-principles-v2.webp" alt="Senior advisers combining close client attention with multidisciplinary expertise" className="about-principles-visual" />
         <div className="principle-grid">
-          <article><span>01</span><h3>Start with context</h3><p>We take time to understand the organisation, the people and the decision—not only the immediate task.</p></article>
-          <article><span>02</span><h3>Connect the disciplines</h3><p>Assurance, consulting, tax, corporate and investment perspectives stay joined around the same objective.</p></article>
-          <article><span>03</span><h3>Keep progress practical</h3><p>Our work is designed to help leaders act with greater clarity, not to add another layer of complexity.</p></article>
+          <article><span className="item-icon principle-icon" aria-hidden="true"><Binoculars size={21} weight="regular" /></span><h3>Start with context</h3><p>We take time to understand the organisation, the people and the decision—not only the immediate task.</p></article>
+          <article><span className="item-icon principle-icon" aria-hidden="true"><CirclesThreePlus size={21} weight="regular" /></span><h3>Connect the disciplines</h3><p>Assurance, consulting, tax, corporate and investment perspectives stay joined around the same objective.</p></article>
+          <article><span className="item-icon principle-icon" aria-hidden="true"><Target size={21} weight="regular" /></span><h3>Keep progress practical</h3><p>Our work is designed to help leaders act with greater clarity, not to add another layer of complexity.</p></article>
         </div>
       </section>
 

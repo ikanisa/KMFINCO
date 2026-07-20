@@ -30,3 +30,11 @@ npm run lint
 ```
 
 The production build is created with `npm run build`. Design comparison evidence is stored in `qa/`, and the final design QA record is in `design-qa.md`.
+
+## Cloudflare deployment
+
+The production site is configured for Cloudflare Workers through Vinext:
+
+```bash
+npm run deploy
+```

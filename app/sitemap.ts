@@ -10,9 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/services/tax-accounting-payroll", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/services/corporate-fiduciary", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/services/investment-family-office", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/who-we-work-with", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/insights", priority: 0.7, changeFrequency: "weekly" as const },
     { path: "/contact", priority: 0.7, changeFrequency: "yearly" as const },
+    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
+    { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
   ];
 
   return routes.map((route) => ({

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const siteUrl = "https://km-finco-advisory-2026.bosco560038.chatgpt.site";
+export const siteUrl = "https://kmfinco-advisory.ikanisa.workers.dev";
 
 type PageMetadataInput = {
   title: string;
@@ -9,7 +9,7 @@ type PageMetadataInput = {
 };
 
 export function pageMetadata({ title, description, path }: PageMetadataInput): Metadata {
-  const socialTitle = `${title} | KM FINCO`;
+  const socialTitle = `${title} | KMFINCO`;
 
   return {
     title,
@@ -19,9 +19,9 @@ export function pageMetadata({ title, description, path }: PageMetadataInput): M
       title: socialTitle,
       description,
       url: path,
-      siteName: "KM FINCO",
+      siteName: "KMFINCO",
       type: "website",
-      images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "KM FINCO — Clarity for what comes next." }],
+      images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "KMFINCO — Clarity for what comes next." }],
     },
     twitter: {
       card: "summary_large_image",

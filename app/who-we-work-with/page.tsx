@@ -1,0 +1,98 @@
+import Link from "next/link";
+import { pageMetadata } from "../../lib/seo";
+import { SiteFooter } from "../components/SiteFooter";
+import { SiteHeader } from "../components/SiteHeader";
+
+export const metadata = pageMetadata({
+  title: "Who we work with",
+  description: "Senior-led audit, consulting, tax, corporate and investment advice for businesses, leadership teams, investors, families and international organisations.",
+  path: "/who-we-work-with",
+});
+
+const clientGroups = [
+  {
+    title: "Businesses & leadership teams",
+    copy: "From ambitious owner-managed businesses to established groups, we help leaders strengthen confidence, navigate change and turn priorities into practical progress.",
+    image: "/who-we-work-with-business-v2.webp",
+    alt: "Business owners and a senior adviser reviewing a growth and governance plan",
+    priorities: ["Growth and transformation", "Governance, controls and risk", "Reporting, tax and compliance"],
+    className: "client-group-business",
+  },
+  {
+    title: "Investors, owners & families",
+    copy: "We connect investment, governance, structuring and family-office perspectives around long-term capital and the decisions that carry across generations.",
+    image: "/who-we-work-with-investors-v2.webp",
+    alt: "A family and investment adviser discussing long-term capital priorities",
+    priorities: ["Investment decisions", "Succession and ownership", "Family-office coordination"],
+    className: "client-group-investors",
+  },
+  {
+    title: "International organisations & institutions",
+    copy: "For organisations working across borders or under heightened accountability, we bring local attention and multidisciplinary support to reporting, governance and delivery.",
+    image: "/who-we-work-with-organisations-v2.webp",
+    alt: "International organisation leaders reviewing governance and reporting priorities",
+    priorities: ["Cross-border operations", "Assurance and accountability", "Risk and regulatory change"],
+    className: "client-group-organisations",
+  },
+];
+
+export default function WhoWeWorkWithPage() {
+  return (
+    <main>
+      <SiteHeader />
+
+      <section className="client-hero">
+        <div className="client-hero-copy">
+          <p className="eyebrow">Who we work with</p>
+          <h1>Advice shaped around your reality.</h1>
+          <p>Different organisations face different pressures. We start with your context, connect the right expertise and stay focused on the decisions that matter.</p>
+          <div className="client-hero-actions">
+            <Link className="primary-button" href="/contact">Book a Meeting</Link>
+            <Link className="text-link" href="/services">Explore our expertise</Link>
+          </div>
+        </div>
+        <div className="client-hero-visual">
+          <img src="/who-we-work-with-hero-v2.webp" alt="A diverse group of senior business leaders in a strategic advisory conversation" width="1536" height="1024" loading="eager" fetchPriority="high" decoding="async" />
+          <aside>
+            <strong>One standard of care.</strong>
+            <span>Senior attention, connected thinking and clear next steps.</span>
+          </aside>
+        </div>
+      </section>
+
+      <section className="client-groups section-shell" aria-labelledby="client-groups-title">
+        <div className="client-groups-heading">
+          <p className="eyebrow">Built around your context</p>
+          <h2 id="client-groups-title">Different starting points. The same commitment to clarity.</h2>
+          <p>Our best work begins with a close understanding of where you are, what is changing and what a useful outcome looks like.</p>
+        </div>
+        <div className="client-groups-grid">
+          {clientGroups.map((group) => (
+            <article className={`client-group-card ${group.className}`} key={group.title}>
+              <img src={group.image} alt={group.alt} width="1536" height="1024" loading="lazy" decoding="async" />
+              <div>
+                <h3>{group.title}</h3>
+                <p>{group.copy}</p>
+                <ul aria-label={`Typical priorities for ${group.title}`}>
+                  {group.priorities.map((priority) => <li key={priority}>{priority}</li>)}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="relationship-cta section-shell" aria-labelledby="relationship-title">
+        <div className="relationship-cta-copy">
+          <p className="eyebrow">The right place to begin</p>
+          <h2 id="relationship-title">Tell us what is changing.</h2>
+          <p>You do not need to know which service comes first. Share the decision, risk or opportunity in front of you and we’ll bring the right perspective to the table.</p>
+          <Link className="primary-button" href="/contact">Book a Meeting</Link>
+        </div>
+        <img src="/who-we-work-with-cta-v2.webp" alt="A senior adviser listening closely during a private first meeting" width="1536" height="1024" loading="lazy" decoding="async" />
+      </section>
+
+      <SiteFooter />
+    </main>
+  );
+}

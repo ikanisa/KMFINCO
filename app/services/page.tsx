@@ -1,4 +1,9 @@
 import Link from "next/link";
+import { Buildings } from "@phosphor-icons/react/dist/ssr/Buildings";
+import { Calculator } from "@phosphor-icons/react/dist/ssr/Calculator";
+import { ChartLineUp } from "@phosphor-icons/react/dist/ssr/ChartLineUp";
+import { Compass } from "@phosphor-icons/react/dist/ssr/Compass";
+import { ShieldCheck } from "@phosphor-icons/react/dist/ssr/ShieldCheck";
 import { pageMetadata } from "../../lib/seo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
@@ -11,11 +16,11 @@ export const metadata = pageMetadata({
 });
 
 const services = [
-  { title: "Audit & Assurance", slug: "audit-assurance", image: "/audit-assurance.webp", copy: "Independent perspective that strengthens confidence in reporting, controls and governance.", tone: "blue" },
-  { title: "Management Consulting", slug: "management-consulting", image: "/management-consulting.webp", copy: "Practical strategy, internal audit, risk and transformation support for stronger organisations.", tone: "violet" },
-  { title: "Tax, Accounting & Payroll", slug: "tax-accounting-payroll", image: "/tax-accounting-payroll.webp", copy: "Clear, connected support for reporting, compliance and day-to-day financial confidence.", tone: "orange" },
-  { title: "Corporate & Fiduciary", slug: "corporate-fiduciary", image: "/corporate-fiduciary.webp", copy: "Thoughtful structures and dependable administration across the business lifecycle.", tone: "green" },
-  { title: "Investment & Family Office", slug: "investment-family-office", image: "/investment-family-office.webp", copy: "Long-term thinking for capital, governance and the priorities that matter most.", tone: "rose" },
+  { title: "Audit & Assurance", slug: "audit-assurance", image: "/audit-assurance.webp", copy: "Independent perspective that strengthens confidence in reporting, controls and governance.", tone: "blue", icon: ShieldCheck },
+  { title: "Management Consulting", slug: "management-consulting", image: "/management-consulting.webp", copy: "Practical strategy, internal audit, risk and transformation support for stronger organisations.", tone: "violet", icon: Compass },
+  { title: "Tax, Accounting & Payroll", slug: "tax-accounting-payroll", image: "/tax-accounting-payroll.webp", copy: "Clear, connected support for reporting, compliance and day-to-day financial confidence.", tone: "orange", icon: Calculator },
+  { title: "Corporate & Fiduciary", slug: "corporate-fiduciary", image: "/corporate-fiduciary.webp", copy: "Thoughtful structures and dependable administration across the business lifecycle.", tone: "green", icon: Buildings },
+  { title: "Investment & Family Office", slug: "investment-family-office", image: "/investment-family-office.webp", copy: "Long-term thinking for capital, governance and the priorities that matter most.", tone: "rose", icon: ChartLineUp },
 ];
 
 export default function ServicesPage() {
@@ -31,24 +36,27 @@ export default function ServicesPage() {
         <img src="/services-overview-hero-v2.webp" alt="A connected team of assurance, consulting and financial specialists around one table" width="1536" height="1024" loading="eager" fetchPriority="high" />
       </section>
       <section className="service-index-grid section-shell" aria-label="Our services">
-        {services.map((service, index) => (
-          <Link className={`service-index-card accent-${service.tone}`} href={`/services/${service.slug}`} key={service.slug}>
-            <img src={service.image} alt={`${service.title} advisers at work`} width="1600" height="1000" loading="lazy" decoding="async" />
-            <div>
-              <span>0{index + 1}</span>
-              <h2>{service.title}</h2>
-              <p>{service.copy}</p>
-              <strong>Explore service</strong>
-            </div>
-          </Link>
-        ))}
+        {services.map((service) => {
+          const ServiceIcon = service.icon;
+          return (
+            <Link className={`service-index-card accent-${service.tone}`} href={`/services/${service.slug}`} key={service.slug}>
+              <img src={service.image} alt={`${service.title} advisers at work`} width="1600" height="1000" loading="lazy" decoding="async" />
+              <div>
+                <span className={`item-icon service-index-icon ${service.tone}`} aria-hidden="true"><ServiceIcon size={21} weight="regular" /></span>
+                <h2>{service.title}</h2>
+                <p>{service.copy}</p>
+                <strong>Explore service</strong>
+              </div>
+            </Link>
+          );
+        })}
       </section>
       <section className="subpage-cta section-shell">
         <div className="subpage-cta-copy">
           <p className="section-index">Not sure where to start?</p>
           <h2>Tell us what is changing.</h2>
           <p>We’ll bring the right mix of expertise around your priorities.</p>
-          <Link className="primary-button" href="/contact">Start a conversation</Link>
+          <Link className="primary-button" href="/contact">Book a Meeting</Link>
         </div>
         <SectionVisual src="/services-cta-v2.webp" alt="A client and multidisciplinary adviser agreeing the right starting point" className="subpage-cta-visual" />
       </section>

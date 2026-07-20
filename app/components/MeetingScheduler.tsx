@@ -1,0 +1,221 @@
+"use client";
+
+import Link from "next/link";
+import { CalendarBlank } from "@phosphor-icons/react/dist/csr/CalendarBlank";
+import { CalendarCheck } from "@phosphor-icons/react/dist/csr/CalendarCheck";
+import { UserCircle } from "@phosphor-icons/react/dist/csr/UserCircle";
+import { FormEvent, useMemo, useState } from "react";
+
+const topics = [
+  "Audit & assurance",
+  "Management consulting",
+  "Tax, accounting & payroll",
+  "Corporate & fiduciary",
+  "Investment & family office",
+];
+
+const times = ["09:00", "10:30", "13:00", "14:30", "16:00"];
+
+type MeetingDate = {
+  iso: string;
+  weekday: string;
+  day: string;
+  month: string;
+  longLabel: string;
+};
+
+type BookingDetails = {
+  name: string;
+  email: string;
+  organisation: string;
+};
+
+function upcomingWeekdays(): MeetingDate[] {
+  const result: MeetingDate[] = [];
+  const cursor = new Date();
+  cursor.setHours(12, 0, 0, 0);
+  cursor.setDate(cursor.getDate() + 1);
+
+  while (result.length < 5) {
+    const weekday = cursor.getDay();
+    if (weekday !== 0 && weekday !== 6) {
+      const year = cursor.getFullYear();
+      const month = String(cursor.getMonth() + 1).padStart(2, "0");
+      const day = String(cursor.getDate()).padStart(2, "0");
+      result.push({
+        iso: `${year}-${month}-${day}`,
+        weekday: new Intl.DateTimeFormat("en-GB", { weekday: "short" }).format(cursor),
+        day: String(cursor.getDate()),
+        month: new Intl.DateTimeFormat("en-GB", { month: "short" }).format(cursor),
+        longLabel: new Intl.DateTimeFormat("en-GB", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+        }).format(cursor),
+      });
+    }
+    cursor.setDate(cursor.getDate() + 1);
+  }
+
+  return result;
+}
+
+function calendarTimestamp(date: string, time: string, extraMinutes = 0) {
+  const start = new Date(`${date}T${time}:00+02:00`);
+  start.setMinutes(start.getMinutes() + extraMinutes);
+  return start.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
+}
+
+export function MeetingScheduler() {
+  const dates = useMemo(() => upcomingWeekdays(), []);
+  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [topic, setTopic] = useState(topics[0]);
+  const [selectedDate, setSelectedDate] = useState(dates[0].iso);
+  const [selectedTime, setSelectedTime] = useState("");
+  const [booking, setBooking] = useState<BookingDetails | null>(null);
+
+  const date = dates.find((item) => item.iso === selectedDate) ?? dates[0];
+
+  const calendarUrl = useMemo(() => {
+    if (!booking || !selectedTime) return "#";
+    const params = new URLSearchParams({
+      action: "TEMPLATE",
+      text: `KMFINCO consultation — ${topic}`,
+      dates: `${calendarTimestamp(selectedDate, selectedTime)}/${calendarTimestamp(selectedDate, selectedTime, 45)}`,
+      ctz: "Africa/Kigali",
+      location: "Google Meet",
+      details: [
+        `Consultation topic: ${topic}`,
+        `Requested by: ${booking.name}`,
+        `Email: ${booking.email}`,
+        booking.organisation ? `Organisation: ${booking.organisation}` : "",
+        "Please add Google Meet conferencing before saving the invitation.",
+      ].filter(Boolean).join("\n"),
+    });
+    return `https://calendar.google.com/calendar/render?${params.toString()}`;
+  }, [booking, selectedDate, selectedTime, topic]);
+
+  function chooseDate(iso: string) {
+    setSelectedDate(iso);
+    setSelectedTime("");
+  }
+
+  function handleDetails(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    setBooking({
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      organisation: String(data.get("organisation") ?? ""),
+    });
+    setStep(3);
+  }
+
+  function restart() {
+    setSelectedTime("");
+    setBooking(null);
+    setStep(1);
+  }
+
+  return (
+    <div className="meeting-scheduler" aria-label="Book a consultation">
+      <div className="scheduler-topline">
+        <div>
+          <span className="scheduler-kicker">Private consultation</span>
+          <h3>Choose a time with our team.</h3>
+        </div>
+        <span className="meeting-format">Google Meet · 45 min</span>
+      </div>
+
+      <ol className="scheduler-progress" aria-label="Booking progress">
+        <li className={step >= 1 ? "is-active" : ""}><span aria-hidden="true"><CalendarBlank size={14} weight="regular" /></span>Time</li>
+        <li className={step >= 2 ? "is-active" : ""}><span aria-hidden="true"><UserCircle size={14} weight="regular" /></span>Details</li>
+        <li className={step >= 3 ? "is-active" : ""}><span aria-hidden="true"><CalendarCheck size={14} weight="regular" /></span>Calendar</li>
+      </ol>
+
+      {step === 1 && (
+        <div className="scheduler-step">
+          <label className="scheduler-field">
+            <span>What would you like to discuss?</span>
+            <select value={topic} onChange={(event) => setTopic(event.target.value)}>
+              {topics.map((item) => <option key={item}>{item}</option>)}
+            </select>
+          </label>
+
+          <fieldset className="date-picker">
+            <legend>Select a date</legend>
+            <div className="date-options">
+              {dates.map((item) => (
+                <button
+                  className={selectedDate === item.iso ? "is-selected" : ""}
+                  type="button"
+                  key={item.iso}
+                  aria-pressed={selectedDate === item.iso}
+                  onClick={() => chooseDate(item.iso)}
+                >
+                  <span>{item.weekday}</span>
+                  <strong>{item.day}</strong>
+                  <span>{item.month}</span>
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset className="time-picker">
+            <legend>Available times · Africa/Kigali</legend>
+            <div className="time-options">
+              {times.map((time) => (
+                <button
+                  className={selectedTime === time ? "is-selected" : ""}
+                  type="button"
+                  key={time}
+                  aria-pressed={selectedTime === time}
+                  onClick={() => setSelectedTime(time)}
+                >
+                  {time}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
+          <button className="scheduler-primary" type="button" disabled={!selectedTime} onClick={() => setStep(2)}>
+            Continue with {selectedTime || "a time"}
+          </button>
+        </div>
+      )}
+
+      {step === 2 && (
+        <form className="scheduler-step scheduler-details" onSubmit={handleDetails}>
+          <div className="booking-summary">
+            <span>{topic}</span>
+            <strong>{date.longLabel} at {selectedTime}</strong>
+            <small>Africa/Kigali · Google Meet · 45 minutes</small>
+          </div>
+          <div className="field-row">
+            <label className="scheduler-field"><span>Full name</span><input name="name" autoComplete="name" required /></label>
+            <label className="scheduler-field"><span>Work email</span><input type="email" name="email" autoComplete="email" required /></label>
+          </div>
+          <label className="scheduler-field"><span>Organisation</span><input name="organisation" autoComplete="organization" /></label>
+          <label className="scheduler-consent">
+            <input type="checkbox" required />
+            <span>I agree to the <Link href="/privacy">Privacy Policy</Link> and <Link href="/terms">Terms of Use</Link>.</span>
+          </label>
+          <div className="scheduler-actions">
+            <button className="scheduler-secondary" type="button" onClick={() => setStep(1)}>Back</button>
+            <button className="scheduler-primary" type="submit">Prepare calendar invitation</button>
+          </div>
+        </form>
+      )}
+
+      {step === 3 && booking && (
+        <div className="scheduler-step scheduler-complete" role="status">
+          <span className="scheduler-kicker">Ready for your calendar</span>
+          <h3>{date.longLabel}<br />at {selectedTime}</h3>
+          <p>Your consultation details are prepared. Open Google Calendar to save the event and add Google Meet conferencing.</p>
+          <a className="scheduler-primary" href={calendarUrl} target="_blank" rel="noreferrer">Open Google Calendar</a>
+          <button className="scheduler-secondary" type="button" onClick={restart}>Choose another time</button>
+        </div>
+      )}
+    </div>
+  );
+}

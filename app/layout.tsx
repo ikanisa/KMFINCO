@@ -10,19 +10,19 @@ import { siteUrl } from "../lib/seo";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "KM FINCO | Clarity for what comes next",
-    template: "%s | KM FINCO",
+    default: "KMFINCO | Clarity for what comes next",
+    template: "%s | KMFINCO",
   },
   description:
     "Integrated audit, assurance, management consulting, corporate, tax, accounting and investment expertise.",
   alternates: { canonical: "/" },
-  applicationName: "KM FINCO",
+  applicationName: "KMFINCO",
   category: "professional services",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
   openGraph: {
-    title: "KM FINCO | Clarity for what comes next",
+    title: "KMFINCO | Clarity for what comes next",
     description:
       "Integrated audit, assurance, management consulting, corporate, tax, accounting and investment expertise.",
     type: "website",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
         url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "KM FINCO — Clarity for what comes next.",
+        alt: "KMFINCO — Clarity for what comes next.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KM FINCO | Clarity for what comes next",
+    title: "KMFINCO | Clarity for what comes next",
     description:
       "Integrated audit, assurance, management consulting, corporate, tax, accounting and investment expertise.",
     images: ["/og.jpg"],
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const structuredData = {
     "@context": "https://schema.org",
     "@type": ["Organization", "ProfessionalService"],
-    name: "KM FINCO",
+    name: "KMFINCO",
     url: siteUrl,
     image: `${siteUrl}/og.jpg`,
     description:
