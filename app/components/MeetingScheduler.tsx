@@ -124,7 +124,6 @@ export function MeetingScheduler() {
           <span className="scheduler-kicker">Private consultation</span>
           <h3>Choose a time with our team.</h3>
         </div>
-        <span className="meeting-format">Google Meet · 45 min</span>
       </div>
 
       <ol className="scheduler-progress" aria-label="Booking progress">

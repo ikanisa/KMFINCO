@@ -969,17 +969,6 @@ h1 {
   line-height: 1;
 }
 
-.meeting-format {
-  flex: 0 0 auto;
-  padding: 8px 11px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #edf9ef, #f1efff);
-  color: var(--green);
-  font-size: 10px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
 .scheduler-progress {
   margin: 28px 0;
   padding: 0;
@@ -2364,14 +2353,6 @@ h1 {
 
   .meeting-scheduler {
     padding: 24px 18px;
-  }
-
-  .scheduler-topline {
-    display: grid;
-  }
-
-  .meeting-format {
-    justify-self: start;
   }
 
   .date-options,

@@ -205,4 +205,11 @@ The multi-page extension is visibly coherent across all ten routes. Every conten
 - Browser checks at 1199 × 734 and 390 × 844 confirm none of the five labels remain across the four affected routes and no page introduces horizontal overflow.
 - Production build, seven rendered-HTML tests, lint and diff checks pass.
 
+## Annotation pass 12 — meeting-format badge removal
+
+- Source visual truth: the user’s live-site annotation selecting the “Google Meet · 45 min” badge in the booking-card header and requesting its deletion.
+- Removed the badge and its desktop/mobile-only styling while retaining the meeting format and duration in the selected-booking summary, where that detail is useful.
+- The scheduler heading, progress indicator and booking controls retain their original alignment and reading order.
+- Rendered-HTML regression coverage now protects the badge removal.
+
 final result: passed

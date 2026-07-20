@@ -137,6 +137,7 @@ test("server-renders dedicated service, audience, booking and legal routes", asy
   assert.match(contact, /tel:\+35679428604/);
   assert.match(contact, /wa\.me\/35679428604/);
   assert.doesNotMatch(contact, /mailto:/i);
+  assert.doesNotMatch(contact, /Google Meet · 45 min/);
   assert.match(contact, /src="\/contact-conversation\.webp"/);
   assert.match(privacy, /Your information, handled with care\./);
   assert.match(privacy, /src="\/privacy-policy-v2\.webp"/);
