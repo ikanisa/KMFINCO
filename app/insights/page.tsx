@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { pageMetadata } from "../../lib/seo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
+import { PrimaryCta } from "../components/PrimaryCta";
 
 export const metadata = pageMetadata({ title: "Insights", description: "Practical perspectives on assurance, management consulting, risk, tax, governance and investment.", path: "/insights" });
 
@@ -15,7 +15,7 @@ const articles = [
 
 export default function InsightsPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
       <section className="index-hero image-index-hero insights-hero">
         <div><h1>Useful thinking for consequential decisions.</h1><p>Clear, practical perspectives from across assurance, consulting, risk, tax, governance and investment.</p></div>
@@ -25,7 +25,7 @@ export default function InsightsPage() {
         {articles.map((article) => (
           <article className={`article-card accent-${article.tone}`} key={article.title}>
             <img src={article.image} alt={article.imageAlt} width="1536" height="1024" loading="lazy" decoding="async" />
-            <div><span>{article.category}</span><h2>{article.title}</h2><p>{article.summary}</p><Link href="/contact">Discuss this topic</Link></div>
+            <div><span>{article.category}</span><h2>{article.title}</h2><p>{article.summary}</p><PrimaryCta /></div>
           </article>
         ))}
       </section>

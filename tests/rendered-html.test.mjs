@@ -22,6 +22,21 @@ async function render(pathname = "/") {
   );
 }
 
+async function post(pathname, payload, bindings = {}, headers = {}) {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}-post`);
+  const { default: worker } = await import(workerUrl.href);
+  return worker.fetch(
+    new Request(`http://localhost${pathname}`, {
+      method: "POST",
+      headers: { accept: "application/json", "content-type": "application/json", ...headers },
+      body: JSON.stringify(payload),
+    }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) }, ...bindings },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+}
+
 test("server-renders the KMFINCO homepage and social metadata", async () => {
   const response = await render();
   assert.equal(response.status, 200);
@@ -31,7 +46,7 @@ test("server-renders the KMFINCO homepage and social metadata", async () => {
   assert.match(html, /<title>KMFINCO \| Clarity for what comes next<\/title>/i);
   assert.match(
     html,
-    /property="og:image" content="https:\/\/kmfinco-advisory\.ikanisa\.workers\.dev\/og\.jpg"/i,
+    /property="og:image" content="https:\/\/kmfinco\.com\/og\.jpg"/i,
   );
   assert.match(html, /Clarity for what comes next\./);
   assert.match(html, /Audit &amp; Assurance/);
@@ -42,8 +57,12 @@ test("server-renders the KMFINCO homepage and social metadata", async () => {
   assert.doesNotMatch(html, /<details[^>]+class="expertise-row"/i);
   assert.match(html, /Internal audit &amp; controls/);
   assert.match(html, /src="\/advisory-team\.webp"/);
-  assert.doesNotMatch(html, />0[1-9]</, "homepage should not render decorative sequence numbers");
+  assert.doesNotMatch(html, /<span[^>]*>0[1-9]<\/span>/, "homepage should not render decorative sequence numbers");
   assert.match(html, /class="rail-icon [^"]+"[^>]*><svg/, "homepage capability rail should render semantic icons");
+  assert.match(html, /href="\/book"[^>]*>Book a Meeting</i);
+  assert.match(html, /href="#main-content">Skip to main content/i);
+  assert.match(html, /Image slider controls/i);
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
 });
 
 test("uses semantic icons instead of decorative numbering across content systems", async () => {
@@ -53,7 +72,7 @@ test("uses semantic icons instead of decorative numbering across content systems
     const response = await render(pathname);
     assert.equal(response.status, 200, `${pathname} should render`);
     const html = await response.text();
-    assert.doesNotMatch(html, />0[1-9]</, `${pathname} should not render decorative sequence numbers`);
+    assert.doesNotMatch(html, /<span[^>]*>0[1-9]<\/span>/, `${pathname} should not render decorative sequence numbers`);
   }
 
   const [homeResponse, servicesResponse, aboutResponse, consultingResponse, contactResponse] = await Promise.all([
@@ -76,7 +95,7 @@ test("uses semantic icons instead of decorative numbering across content systems
   assert.match(services, /class="item-icon service-index-icon/, "service cards should render service icons");
   assert.match(about, /class="item-icon principle-icon/, "principles should render meaningful icons");
   assert.match(consulting, /class="item-icon service-offering-icon/, "offerings should render service-specific icons");
-  assert.match(contact, /class="scheduler-progress"[\s\S]*?<svg/, "booking progress should render semantic icons");
+  assert.match(contact, /Book a Meeting/, "contact route should provide the uniform booking action");
 });
 
 test("server-renders dedicated service, audience, booking and legal routes", async () => {
@@ -114,7 +133,10 @@ test("server-renders dedicated service, audience, booking and legal routes", asy
   assert.match(audience, /Businesses &amp; leadership teams/);
   assert.match(audience, /src="\/who-we-work-with-hero-v2\.webp"/);
   assert.match(contact, /Choose a time that works\./);
-  assert.match(contact, /Google Meet · 45 min/);
+  assert.match(contact, /creates Google Meet/);
+  assert.match(contact, /tel:\+35679428604/);
+  assert.match(contact, /wa\.me\/35679428604/);
+  assert.doesNotMatch(contact, /mailto:/i);
   assert.match(contact, /src="\/contact-conversation\.webp"/);
   assert.match(privacy, /Your information, handled with care\./);
   assert.match(privacy, /src="\/privacy-policy-v2\.webp"/);
@@ -170,15 +192,66 @@ test("renders production SEO signals", async () => {
   const sitemap = await sitemapResponse.text();
   const robots = await robotsResponse.text();
 
-  assert.match(home, /rel="canonical" href="https:\/\/kmfinco-advisory\.ikanisa\.workers\.dev\/"/i);
+  assert.match(home, /rel="canonical" href="https:\/\/kmfinco\.com\/"/i);
   assert.match(home, /"@type":\["Organization","ProfessionalService"\]/);
   assert.match(consulting, /Management consulting for strategy, transformation, internal audit, risk management/i);
-  assert.match(consulting, /rel="canonical" href="https:\/\/kmfinco-advisory\.ikanisa\.workers\.dev\/services\/management-consulting"/i);
+  assert.match(consulting, /rel="canonical" href="https:\/\/kmfinco\.com\/services\/management-consulting"/i);
   assert.equal(sitemapResponse.status, 200);
-  assert.match(sitemap, /<loc>https:\/\/kmfinco-advisory\.ikanisa\.workers\.dev\/services\/audit-assurance<\/loc>/);
-  assert.match(sitemap, /<loc>https:\/\/kmfinco-advisory\.ikanisa\.workers\.dev\/privacy<\/loc>/);
-  assert.match(sitemap, /<loc>https:\/\/kmfinco-advisory\.ikanisa\.workers\.dev\/who-we-work-with<\/loc>/);
-  assert.match(sitemap, /<loc>https:\/\/kmfinco-advisory\.ikanisa\.workers\.dev\/terms<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/kmfinco\.com\/services\/audit-assurance<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/kmfinco\.com\/privacy<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/kmfinco\.com\/who-we-work-with<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/kmfinco\.com\/terms<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/kmfinco\.com\/book<\/loc>/);
   assert.equal(robotsResponse.status, 200);
-  assert.match(robots, /Sitemap: https:\/\/kmfinco-advisory\.ikanisa\.workers\.dev\/sitemap\.xml/);
+  assert.match(robots, /Sitemap: https:\/\/kmfinco\.com\/sitemap\.xml/);
+});
+
+test("native booking validates input and fails safely without credentials", async () => {
+  const invalid = await post("/api/book", { name: "", email: "not-an-email", start: "invalid", duration: 30, privacy_consent: false });
+  assert.equal(invalid.status, 400);
+
+  const future = new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString();
+  const unconfigured = await post("/api/book", { name: "Test Client", email: "test@example.com", start: future, duration: 30, timezone: "Europe/Malta", privacy_consent: "agreed" });
+  assert.equal(unconfigured.status, 503);
+  assert.deepEqual(await unconfigured.json(), { error: "booking_not_configured" });
+
+  const rejectedOrigin = await post(
+    "/api/book",
+    { name: "Test", email: "test@example.com" },
+    {},
+    { origin: "https://example.net" },
+  );
+  assert.equal(rejectedOrigin.status, 403);
+});
+
+test("native booking creates conflict-checked Google Meet events for approved recipients", async () => {
+  const originalFetch = globalThis.fetch;
+  const requests = [];
+  globalThis.fetch = async (input, init = {}) => {
+    const url = String(input);
+    requests.push({ url, body: init.body ? String(init.body) : "" });
+    if (url === "https://oauth2.googleapis.com/token") return Response.json({ access_token: "test_token" });
+    if (url === "https://www.googleapis.com/calendar/v3/freeBusy") return Response.json({ calendars: { primary: { busy: [] } } });
+    if (url.includes("/calendar/v3/calendars/primary/events")) return Response.json({ id: "event_123", htmlLink: "https://calendar.google.com/event?eid=test", hangoutLink: "https://meet.google.com/abc-defg-hij" });
+    return new Response("Unexpected external request", { status: 500 });
+  };
+
+  try {
+    const future = new Date(Date.now() + 72 * 60 * 60 * 1000).toISOString();
+    const response = await post(
+      "/api/book",
+      { name: "Test Client", email: "test@example.com", start: future, duration: 30, timezone: "Europe/Malta", privacy_consent: "agreed" },
+      { GOOGLE_CALENDAR_CLIENT_ID: "client", GOOGLE_CALENDAR_CLIENT_SECRET: "secret", GOOGLE_CALENDAR_REFRESH_TOKEN: "refresh", GOOGLE_CALENDAR_ID: "primary", GOOGLE_CALENDAR_TIMEZONE: "Europe/Malta" },
+    );
+    assert.equal(response.status, 200);
+    const createEvent = requests.find(({ url }) => url.includes("/events?conferenceDataVersion=1"));
+    assert.ok(requests.some(({ url }) => url.endsWith("/freeBusy")));
+    assert.ok(createEvent);
+    assert.match(createEvent.url, /sendUpdates=all/);
+    assert.match(createEvent.body, /hangoutsMeet/);
+    assert.match(createEvent.body, /bosco@ikanisa\.com/);
+    assert.match(createEvent.body, /kmifsud@kmconsultants\.com\.mt/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });

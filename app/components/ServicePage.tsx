@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Buildings } from "@phosphor-icons/react/dist/ssr/Buildings";
 import { Calculator } from "@phosphor-icons/react/dist/ssr/Calculator";
 import { ChartBar } from "@phosphor-icons/react/dist/ssr/ChartBar";
@@ -24,6 +23,7 @@ import { UsersThree } from "@phosphor-icons/react/dist/ssr/UsersThree";
 import { SectionVisual } from "./SectionVisual";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
+import { PrimaryCta } from "./PrimaryCta";
 
 type ServicePageProps = {
   eyebrow: string;
@@ -85,14 +85,14 @@ export function ServicePage({
   sectionImages,
 }: ServicePageProps) {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
       <section className={`subpage-hero accent-${accent}`}>
         <div className="subpage-copy">
           <p className="eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p>{lede}</p>
-          <Link className="primary-button" href="/contact">Discuss your priorities</Link>
+          <PrimaryCta className="primary-button" />
         </div>
         <div className="subpage-image-wrap">
           <img src={image} alt={imageAlt} className="subpage-image" width="1600" height="1000" loading="eager" fetchPriority="high" decoding="async" />
@@ -139,7 +139,7 @@ export function ServicePage({
           <p className="section-index">Book a Meeting</p>
           <h2>Bring us the decision in front of you.</h2>
           <p>We’ll connect the right expertise and help make the next step clearer.</p>
-          <Link className="primary-button" href="/contact">Talk to an adviser</Link>
+          <PrimaryCta className="primary-button" />
         </div>
         <SectionVisual src={sectionImages.cta.src} alt={sectionImages.cta.alt} className="subpage-cta-visual" />
       </section>

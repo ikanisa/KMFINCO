@@ -11,7 +11,7 @@ export const metadata = pageMetadata({
 
 export default function PrivacyPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
       <article className="legal-page section-shell">
         <header className="legal-hero">

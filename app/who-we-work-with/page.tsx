@@ -2,6 +2,7 @@ import Link from "next/link";
 import { pageMetadata } from "../../lib/seo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
+import { PrimaryCta } from "../components/PrimaryCta";
 
 export const metadata = pageMetadata({
   title: "Who we work with",
@@ -38,7 +39,7 @@ const clientGroups = [
 
 export default function WhoWeWorkWithPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
 
       <section className="client-hero">
@@ -47,7 +48,7 @@ export default function WhoWeWorkWithPage() {
           <h1>Advice shaped around your reality.</h1>
           <p>Different organisations face different pressures. We start with your context, connect the right expertise and stay focused on the decisions that matter.</p>
           <div className="client-hero-actions">
-            <Link className="primary-button" href="/contact">Book a Meeting</Link>
+            <PrimaryCta className="primary-button" />
             <Link className="text-link" href="/services">Explore our expertise</Link>
           </div>
         </div>
@@ -87,7 +88,7 @@ export default function WhoWeWorkWithPage() {
           <p className="eyebrow">The right place to begin</p>
           <h2 id="relationship-title">Tell us what is changing.</h2>
           <p>You do not need to know which service comes first. Share the decision, risk or opportunity in front of you and we’ll bring the right perspective to the table.</p>
-          <Link className="primary-button" href="/contact">Book a Meeting</Link>
+          <PrimaryCta className="primary-button" />
         </div>
         <img src="/who-we-work-with-cta-v2.webp" alt="A senior adviser listening closely during a private first meeting" width="1536" height="1024" loading="lazy" decoding="async" />
       </section>

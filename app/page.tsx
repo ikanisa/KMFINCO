@@ -10,7 +10,8 @@ import { GlobeHemisphereWest } from "@phosphor-icons/react/dist/ssr/GlobeHemisph
 import { ShieldCheck } from "@phosphor-icons/react/dist/ssr/ShieldCheck";
 import { Target } from "@phosphor-icons/react/dist/ssr/Target";
 import { UsersThree } from "@phosphor-icons/react/dist/ssr/UsersThree";
-import { MeetingScheduler } from "./components/MeetingScheduler";
+import { EditorialSlider } from "./components/EditorialSlider";
+import { PrimaryCta } from "./components/PrimaryCta";
 import { SectionVisual } from "./components/SectionVisual";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
@@ -96,7 +97,7 @@ const insights = [
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <SiteHeader />
 
       <section className="hero" id="top">
@@ -107,9 +108,7 @@ export default function Home() {
             Integrated audit, assurance, management consulting, corporate, tax,
             accounting and investment expertise for businesses, investors and families.
           </p>
-          <Link className="primary-button" href="/contact">
-            Book a Meeting
-          </Link>
+          <PrimaryCta className="primary-button" />
         </div>
 
         <div className="hero-visual" aria-label="Advisers in a strategic discussion">
@@ -248,8 +247,14 @@ export default function Home() {
           <p>Select a convenient time and the expertise you need. Your calendar invitation is prepared instantly for a private video meeting.</p>
           <SectionVisual src="/home-contact-v2.webp" alt="A calm first conversation between a senior adviser and a prospective client" className="contact-section-visual" />
         </div>
-        <MeetingScheduler />
+        <div className="contact-cta-panel">
+          <p className="eyebrow">Google Calendar & Meet</p>
+          <h3>Choose a time and confirm in one secure flow.</h3>
+          <p>Availability is checked before the invitation is created for you and KMFINCO’s approved scheduling contacts.</p>
+          <PrimaryCta className="primary-button" />
+        </div>
       </section>
+      <EditorialSlider />
       <SiteFooter />
     </main>
   );

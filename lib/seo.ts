@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const siteUrl = "https://kmfinco-advisory.ikanisa.workers.dev";
+export const siteUrl = "https://kmfinco.com";
 
 type PageMetadataInput = {
   title: string;

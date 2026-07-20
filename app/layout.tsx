@@ -6,6 +6,8 @@ import "@fontsource/cormorant-garamond/500.css";
 import "@fontsource/cormorant-garamond/500-italic.css";
 import "./globals.css";
 import { siteUrl } from "../lib/seo";
+import { siteConfig } from "../lib/site-config";
+import { AnalyticsConsent } from "./components/AnalyticsConsent";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -18,6 +20,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   applicationName: "KMFINCO",
   category: "professional services",
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+  },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
@@ -54,6 +59,16 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     description:
       "Integrated audit, assurance, management consulting, corporate, tax, accounting and investment expertise.",
     areaServed: "International",
+    email: siteConfig.email,
+    telephone: siteConfig.phoneE164,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: siteConfig.email,
+      telephone: siteConfig.phoneE164,
+      availableLanguage: ["English"],
+    },
+    sameAs: siteConfig.linkedInUrl ? [siteConfig.linkedInUrl] : undefined,
     knowsAbout: [
       "Audit and assurance",
       "Management consulting",
@@ -68,7 +83,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        <a className="skip-link" href="#main-content">Skip to main content</a>
         {children}
+        <AnalyticsConsent />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
