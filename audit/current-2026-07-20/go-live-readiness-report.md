@@ -7,7 +7,7 @@ Baseline audited commit: `7980500b67dc3e6ca77f378cbe87632d5488edf5`
 
 ## Post-audit implementation status
 
-The identified repository-level gaps have been implemented on branch `codex/go-live-readiness`: direct email, phone and WhatsApp channels; a native Google Calendar/Meet booking route; server-side contact delivery options; service-area wording; privacy and consent; consent-gated analytics hooks; canonical domain/SEO updates; Search Console verification support; a verified-only LinkedIn hook; and a branded 404 page. The expanded build, lint, browser and seven-test validation suite passes.
+The identified repository-level gaps have been implemented on branch `codex/go-live-readiness`: direct email, phone and WhatsApp channels; a contact form that prepares a `mailto:` draft without server-side email delivery or storage; a native Google Calendar/Meet booking route; service-area wording; privacy and consent; consent-gated analytics hooks; canonical domain/SEO updates; Search Console verification support; a verified-only LinkedIn hook; and a branded 404 page. The expanded build, lint, browser and seven-test validation suite passes.
 
 Public launch remains blocked by external account ownership and production values rather than missing repository code. The exact activation checklist is maintained in `GO_LIVE_IMPLEMENTATION.md`.
 

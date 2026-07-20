@@ -11,7 +11,7 @@ Updated: 20 July 2026
 - Native Google Calendar API integration that exchanges an OAuth refresh token, checks free/busy availability, creates the event, adds the prospective client as an attendee, requests a Google Meet conference and sends Calendar updates
 - Correctly dated, pre-addressed Google Calendar fallback when the production Calendar credentials are unavailable
 - Optional Google Calendar Appointment Schedule URL
-- First-party contact API with approved webhook and Resend delivery options
+- Contact form that opens a prepared `mailto:` draft without server-side email delivery or submission storage
 - Cross-border service-area statement without inventing an office address
 - Privacy policy at `/privacy`
 - Required enquiry-form privacy consent
@@ -31,7 +31,6 @@ The website reads these values from the hosting environment. Add them only after
 | Public mailbox | `NEXT_PUBLIC_CONTACT_EMAIL` | Defaults to `hello@kmfinco.com`; mailbox and MX delivery must be provisioned and tested |
 | Google Calendar API | `GOOGLE_CALENDAR_CLIENT_ID`, `GOOGLE_CALENDAR_CLIENT_SECRET`, `GOOGLE_CALENDAR_REFRESH_TOKEN`, `GOOGLE_CALENDAR_ID`, `GOOGLE_CALENDAR_TIMEZONE` | Produces a correctly dated Calendar invitation; credentials activate free/busy checking, event creation, attendee notifications and Google Meet |
 | Public appointment schedule | `NEXT_PUBLIC_GOOGLE_BOOKING_URL` | Optional secondary route to KM FINCO's Google Appointment Schedule |
-| Form delivery/CRM | `CONTACT_WEBHOOK_URL` and optional secret, or `RESEND_API_KEY`, `CONTACT_RECIPIENT_EMAIL`, `CONTACT_FROM_EMAIL` | Opens the visitor's email client with a prepared message when server delivery is not configured |
 | LinkedIn company page | `NEXT_PUBLIC_LINKEDIN_URL` | Link remains hidden to avoid publishing an unverified profile |
 | Google Analytics 4 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Analytics and consent banner remain off |
 | Search Console | `GOOGLE_SITE_VERIFICATION` | Verification meta tag remains absent |
@@ -46,14 +45,13 @@ The website reads these values from the hosting environment. Add them only after
 6. Supply and verify KM FINCO's official LinkedIn company-page URL.
 7. Create the GA4 property/data stream, supply the `G-` measurement ID, verify consent behaviour, and mark the implemented conversion events as key events where appropriate.
 8. Add `https://kmfinco.com` to Google Search Console, supply the HTML-tag token or complete DNS verification, then submit `https://kmfinco.com/sitemap.xml`.
-9. Activate the first-party contact route with an approved CRM webhook or Resend sender. Verify the sender domain before relying on automated delivery.
-10. Have counsel/privacy leadership confirm the privacy-policy wording, legal entity/controller name, jurisdiction and retention periods before public launch.
+9. Have counsel/privacy leadership confirm the privacy-policy wording, legal entity/controller name, jurisdiction and retention periods before public launch.
 
 ## Verification completed
 
 - Production build passes.
 - Lint passes after final validation.
-- Seven rendered-route and server-integration test suites pass, including contact channels, privacy, canonical domain, sitemap, robots, 404 behaviour, validation, safe unconfigured states, email delivery, free/busy checking and Google Meet event creation.
+- Seven rendered-route and server-integration test suites pass, including contact channels, privacy, canonical domain, sitemap, robots, 404 behaviour, validation, safe unconfigured booking behaviour, free/busy checking and Google Meet event creation.
 - Browser QA passes at desktop and mobile widths with no horizontal overflow or console errors.
 - Contact form requires name, work email, message and privacy consent.
 - Analytics does not load without both a configured GA4 ID and visitor consent.

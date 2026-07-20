@@ -19,9 +19,9 @@ A premium multi-page advisory website combining audit, assurance, management con
 
 ## First-party integrations
 
-- `/api/contact` validates consent and delivers enquiries through an approved webhook or Resend configuration.
 - `/api/book` validates meeting requests, checks Google Calendar free/busy availability, and creates a Calendar event with Google Meet and attendee notifications.
-- Both experiences fail safely when production credentials are absent: contact opens a prepared email and booking produces a dated Google Calendar invitation.
+- The contact form does not use a server-side email service or store submissions. It opens a pre-addressed draft in the visitor's email application.
+- Booking fails safely when production credentials are absent by producing a dated Google Calendar invitation.
 - Required hosted values are listed in `.env.example` and `GO_LIVE_IMPLEMENTATION.md`.
 
 ## Local development

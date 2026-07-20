@@ -5,16 +5,11 @@ import handler from "vinext/server/app-router-entry";
 interface Env {
   ASSETS: Fetcher;
   DB: D1Database;
-  CONTACT_FROM_EMAIL?: string;
-  CONTACT_RECIPIENT_EMAIL?: string;
-  CONTACT_WEBHOOK_SECRET?: string;
-  CONTACT_WEBHOOK_URL?: string;
   GOOGLE_CALENDAR_CLIENT_ID?: string;
   GOOGLE_CALENDAR_CLIENT_SECRET?: string;
   GOOGLE_CALENDAR_ID?: string;
   GOOGLE_CALENDAR_REFRESH_TOKEN?: string;
   GOOGLE_CALENDAR_TIMEZONE?: string;
-  RESEND_API_KEY?: string;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {

@@ -165,32 +165,22 @@ test("renders launch contact, privacy and not-found requirements", async () => {
   assert.match(notFound, /Return home/i);
 });
 
-test("first-party contact and booking APIs validate input and fail safely without credentials", async () => {
-  const [contactInvalid, bookingInvalid] = await Promise.all([
-    post("/api/contact", { name: "", email: "not-an-email", message: "", privacy_consent: false }),
-    post("/api/book", { name: "", email: "not-an-email", start: "invalid", duration: 30, privacy_consent: false }),
-  ]);
-  assert.equal(contactInvalid.status, 400);
+test("first-party booking API validates input and fails safely without credentials", async () => {
+  const bookingInvalid = await post("/api/book", { name: "", email: "not-an-email", start: "invalid", duration: 30, privacy_consent: false });
   assert.equal(bookingInvalid.status, 400);
 
   const future = new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString();
-  const [contactUnconfigured, bookingUnconfigured] = await Promise.all([
-    post("/api/contact", { name: "Test Client", email: "test@example.com", message: "Advisory enquiry", privacy_consent: "agreed" }),
-    post("/api/book", { name: "Test Client", email: "test@example.com", start: future, duration: 30, timezone: "Europe/Malta", privacy_consent: "agreed" }),
-  ]);
-  assert.equal(contactUnconfigured.status, 503);
+  const bookingUnconfigured = await post("/api/book", { name: "Test Client", email: "test@example.com", start: future, duration: 30, timezone: "Europe/Malta", privacy_consent: "agreed" });
   assert.equal(bookingUnconfigured.status, 503);
-  assert.deepEqual(await contactUnconfigured.json(), { error: "contact_delivery_not_configured" });
   assert.deepEqual(await bookingUnconfigured.json(), { error: "booking_not_configured" });
 });
 
-test("first-party APIs deliver enquiries and create conflict-checked Google Meet events", async () => {
+test("booking API creates conflict-checked Google Meet events", async () => {
   const originalFetch = globalThis.fetch;
   const requests = [];
   globalThis.fetch = async (input, init = {}) => {
     const url = String(input);
     requests.push({ url, body: init.body ? String(init.body) : "" });
-    if (url === "https://api.resend.com/emails") return Response.json({ id: "email_123" });
     if (url === "https://oauth2.googleapis.com/token") return Response.json({ access_token: "test_token" });
     if (url === "https://www.googleapis.com/calendar/v3/freeBusy") {
       return Response.json({ calendars: { primary: { busy: [] } } });
@@ -203,14 +193,6 @@ test("first-party APIs deliver enquiries and create conflict-checked Google Meet
 
   try {
     const future = new Date(Date.now() + 72 * 60 * 60 * 1000).toISOString();
-    const contactResponse = await post(
-      "/api/contact",
-      { name: "Test Client", email: "test@example.com", organisation: "Example Ltd", message: "Advisory enquiry", privacy_consent: "agreed" },
-      { RESEND_API_KEY: "test_key", CONTACT_RECIPIENT_EMAIL: "hello@kmfinco.com", CONTACT_FROM_EMAIL: "website@kmfinco.com" },
-    );
-    assert.equal(contactResponse.status, 200);
-    assert.deepEqual(await contactResponse.json(), { ok: true, channel: "email" });
-
     const bookingResponse = await post(
       "/api/book",
       { name: "Test Client", email: "test@example.com", organisation: "Example Ltd", context: "Strategy discussion", start: future, duration: 30, timezone: "Europe/Malta", privacy_consent: "agreed" },
