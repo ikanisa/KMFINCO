@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SectionVisual } from "./SectionVisual";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 
@@ -12,6 +13,12 @@ type ServicePageProps = {
   services: Array<{ title: string; description: string }>;
   outcomes: string[];
   accent: "green" | "violet" | "orange" | "rose" | "blue";
+  sectionImages: {
+    intro: { src: string; alt: string };
+    offerings: { src: string; alt: string };
+    outcomes: { src: string; alt: string };
+    cta: { src: string; alt: string };
+  };
 };
 
 export function ServicePage({
@@ -24,6 +31,7 @@ export function ServicePage({
   services,
   outcomes,
   accent,
+  sectionImages,
 }: ServicePageProps) {
   return (
     <main>
@@ -36,23 +44,29 @@ export function ServicePage({
           <Link className="primary-button" href="/contact">Discuss your priorities</Link>
         </div>
         <div className="subpage-image-wrap">
-          <img src={image} alt={imageAlt} className="subpage-image" />
+          <img src={image} alt={imageAlt} className="subpage-image" width="1600" height="1000" loading="eager" fetchPriority="high" decoding="async" />
         </div>
       </section>
 
       <section className="service-intro section-shell">
-        <p className="section-index">What we bring</p>
-        <h2>{introduction}</h2>
+        <div className="service-intro-copy">
+          <p className="section-index">What we bring</p>
+          <h2>{introduction}</h2>
+        </div>
+        <SectionVisual src={sectionImages.intro.src} alt={sectionImages.intro.alt} className="service-intro-visual" />
       </section>
 
-      <section className="service-offerings section-shell" aria-label={`${title} services`}>
-        {services.map((service, index) => (
-          <article key={service.title}>
-            <span>0{index + 1}</span>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
-          </article>
-        ))}
+      <section className="service-offerings-shell section-shell" aria-label={`${title} services`}>
+        <SectionVisual src={sectionImages.offerings.src} alt={sectionImages.offerings.alt} className="service-offerings-visual" />
+        <div className="service-offerings">
+          {services.map((service, index) => (
+            <article key={service.title}>
+              <span>0{index + 1}</span>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className={`service-outcomes section-shell accent-${accent}`}>
@@ -63,13 +77,17 @@ export function ServicePage({
         <ul>
           {outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
         </ul>
+        <SectionVisual src={sectionImages.outcomes.src} alt={sectionImages.outcomes.alt} className="service-outcomes-visual" />
       </section>
 
       <section className="subpage-cta section-shell">
-        <p className="section-index">Start a conversation</p>
-        <h2>Bring us the decision in front of you.</h2>
-        <p>We’ll connect the right expertise and help make the next step clearer.</p>
-        <Link className="primary-button" href="/contact">Talk to an adviser</Link>
+        <div className="subpage-cta-copy">
+          <p className="section-index">Start a conversation</p>
+          <h2>Bring us the decision in front of you.</h2>
+          <p>We’ll connect the right expertise and help make the next step clearer.</p>
+          <Link className="primary-button" href="/contact">Talk to an adviser</Link>
+        </div>
+        <SectionVisual src={sectionImages.cta.src} alt={sectionImages.cta.alt} className="subpage-cta-visual" />
       </section>
       <SiteFooter />
     </main>

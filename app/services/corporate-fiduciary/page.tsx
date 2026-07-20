@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "../../../lib/seo";
 import { ServicePage } from "../../components/ServicePage";
 
-export const metadata: Metadata = { title: "Corporate & Fiduciary", description: "Corporate administration, governance and fiduciary support across the business lifecycle." };
+export const metadata = pageMetadata({ title: "Corporate & Fiduciary", description: "Company formation, corporate administration, company secretarial, governance and fiduciary support across the business lifecycle.", path: "/services/corporate-fiduciary" });
 
 export default function CorporateFiduciaryPage() {
   return <ServicePage
@@ -10,6 +10,12 @@ export default function CorporateFiduciaryPage() {
     lede="Thoughtful corporate, governance and fiduciary support—from formation and administration through change and succession."
     image="/corporate-fiduciary.webp"
     imageAlt="Corporate adviser and business owner reviewing governance documents"
+    sectionImages={{
+      intro: { src: "/corporate-intro-v2.webp", alt: "Corporate adviser clarifying an ownership and governance structure" },
+      offerings: { src: "/corporate-offerings-v2.webp", alt: "Company secretarial team preparing board and statutory records" },
+      outcomes: { src: "/corporate-outcomes-v2.webp", alt: "Directors holding an orderly governance meeting with clear responsibilities" },
+      cta: { src: "/corporate-cta-v2.webp", alt: "Business owner discussing a future corporate structure with a trusted adviser" },
+    }}
     introduction="The right structure should make ownership, governance and administration clearer—not more complicated."
     accent="green"
     services={[

@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "../../lib/seo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
+import { SectionVisual } from "../components/SectionVisual";
 
-export const metadata: Metadata = { title: "About", description: "A senior-led multidisciplinary advisory firm built around clarity, connection and practical progress." };
+export const metadata = pageMetadata({ title: "About", description: "A senior-led multidisciplinary advisory firm built around clarity, connection and practical progress.", path: "/about" });
 
 export default function AboutPage() {
   return (
@@ -16,12 +17,13 @@ export default function AboutPage() {
           <p>We bring assurance, consulting and financial expertise together around the decisions that shape organisations, investments and families.</p>
           <Link className="primary-button" href="/contact">Meet the right adviser</Link>
         </div>
-        <div className="subpage-image-wrap"><img src="/about-team.webp" alt="A multidisciplinary team of senior advisers in discussion" className="subpage-image" /></div>
+        <div className="subpage-image-wrap"><img src="/about-team.webp" alt="A multidisciplinary team of senior advisers in discussion" className="subpage-image" width="1600" height="1000" loading="eager" fetchPriority="high" decoding="async" /></div>
       </section>
 
       <section className="about-principles section-shell">
         <p className="section-index">What defines us</p>
         <h2>Senior attention. Connected expertise. Straightforward advice.</h2>
+        <SectionVisual src="/about-principles-v2.webp" alt="Senior advisers combining close client attention with multidisciplinary expertise" className="about-principles-visual" />
         <div className="principle-grid">
           <article><span>01</span><h3>Start with context</h3><p>We take time to understand the organisation, the people and the decision—not only the immediate task.</p></article>
           <article><span>02</span><h3>Connect the disciplines</h3><p>Assurance, consulting, tax, corporate and investment perspectives stay joined around the same objective.</p></article>
@@ -30,7 +32,7 @@ export default function AboutPage() {
       </section>
 
       <section className="about-story section-shell">
-        <div className="about-story-image"><img src="/advisory-team.webp" alt="Senior advisers collaborating around a client brief" /></div>
+        <div className="about-story-image"><img src="/about-story-v2.webp" alt="A broader advisory team connecting decisions across service boundaries" width="1536" height="1024" loading="lazy" decoding="async" /></div>
         <div><p className="section-index">One firm, broader perspective</p><h2>Built for decisions that cross boundaries.</h2><p>Important decisions rarely fit neatly inside one service line. Reporting affects tax. Strategy changes risk. Ownership shapes governance. Investment priorities connect to family priorities. Our model keeps those perspectives together.</p><Link className="text-link" href="/services">Explore our expertise</Link></div>
       </section>
       <SiteFooter />

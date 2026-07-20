@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "../../lib/seo";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
+import { SectionVisual } from "../components/SectionVisual";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Expertise",
   description: "Connected audit, assurance, management consulting, tax, corporate and investment expertise.",
-};
+  path: "/services",
+});
 
 const services = [
   { title: "Audit & Assurance", slug: "audit-assurance", image: "/audit-assurance.webp", copy: "Independent perspective that strengthens confidence in reporting, controls and governance.", tone: "blue" },
@@ -20,15 +22,18 @@ export default function ServicesPage() {
   return (
     <main>
       <SiteHeader />
-      <section className="index-hero">
-        <p className="eyebrow">Connected expertise</p>
-        <h1>One relationship.<br />More of the picture.</h1>
-        <p>Our assurance, consulting and financial specialists work as one team—so advice stays connected to the decisions, risks and opportunities around it.</p>
+      <section className="index-hero image-index-hero services-index-hero">
+        <div>
+          <p className="eyebrow">Connected expertise</p>
+          <h1>One relationship.<br />More of the picture.</h1>
+          <p>Our assurance, consulting and financial specialists work as one team—so advice stays connected to the decisions, risks and opportunities around it.</p>
+        </div>
+        <img src="/services-overview-hero-v2.webp" alt="A connected team of assurance, consulting and financial specialists around one table" width="1536" height="1024" loading="eager" fetchPriority="high" />
       </section>
       <section className="service-index-grid section-shell" aria-label="Our services">
         {services.map((service, index) => (
           <Link className={`service-index-card accent-${service.tone}`} href={`/services/${service.slug}`} key={service.slug}>
-            <img src={service.image} alt="" />
+            <img src={service.image} alt={`${service.title} advisers at work`} width="1600" height="1000" loading="lazy" decoding="async" />
             <div>
               <span>0{index + 1}</span>
               <h2>{service.title}</h2>
@@ -39,10 +44,13 @@ export default function ServicesPage() {
         ))}
       </section>
       <section className="subpage-cta section-shell">
-        <p className="section-index">Not sure where to start?</p>
-        <h2>Tell us what is changing.</h2>
-        <p>We’ll bring the right mix of expertise around your priorities.</p>
-        <Link className="primary-button" href="/contact">Start a conversation</Link>
+        <div className="subpage-cta-copy">
+          <p className="section-index">Not sure where to start?</p>
+          <h2>Tell us what is changing.</h2>
+          <p>We’ll bring the right mix of expertise around your priorities.</p>
+          <Link className="primary-button" href="/contact">Start a conversation</Link>
+        </div>
+        <SectionVisual src="/services-cta-v2.webp" alt="A client and multidisciplinary adviser agreeing the right starting point" className="subpage-cta-visual" />
       </section>
       <SiteFooter />
     </main>

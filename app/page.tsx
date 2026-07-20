@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ContactForm } from "./components/ContactForm";
+import { SectionVisual } from "./components/SectionVisual";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 
@@ -102,6 +103,9 @@ export default function Home() {
             alt="Three senior advisers discussing a client brief around a table"
             width={1672}
             height={941}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <aside className="promise-card" aria-label="Our client promise">
             <p className="promise-title">A partner for today.<br />Prepared for tomorrow.</p>
@@ -130,6 +134,7 @@ export default function Home() {
             );
           })}
         </div>
+        <SectionVisual src="/home-capabilities-v2.webp" alt="Five connected advisory workstreams brought together around one client table" className="rail-section-visual" />
       </section>
 
       <section className="expertise-section section-shell" aria-labelledby="expertise-title">
@@ -138,6 +143,7 @@ export default function Home() {
           <h2 id="expertise-title">The right perspective, at the right moment.</h2>
           <p>Our specialists work as one team—bringing assurance, advice and execution together around the decisions that shape your organisation.</p>
         </div>
+        <SectionVisual src="/home-expertise-v2.webp" alt="Assurance, tax and strategy professionals collaborating on a shared client decision" className="section-banner-visual" />
         <div className="expertise-list">
           {capabilities.map((capability, index) => {
             const id = capability.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and").replaceAll(",", "");
@@ -172,6 +178,7 @@ export default function Home() {
           </p>
           <Link className="text-link" href="/services/management-consulting">Explore management consulting</Link>
         </div>
+        <SectionVisual src="/home-consulting-v2.webp" alt="A senior consultant facilitating a risk and transformation workshop" className="consulting-visual" />
         <div className="consulting-grid">
           <div><span className="consulting-label">Controls</span><h3>Internal audit & controls</h3><p>Risk-based reviews, control design and assurance that improves how the organisation operates.</p></div>
           <div><span className="consulting-label">Change</span><h3>Strategy & transformation</h3><p>Clear choices, practical operating models and focused delivery support from intent to execution.</p></div>
@@ -185,6 +192,7 @@ export default function Home() {
           <p className="section-index">03 / Who we help</p>
           <h2 id="audience-title">Advice shaped around your reality.</h2>
         </div>
+        <SectionVisual src="/home-audience-v2.webp" alt="Business leaders, investors and international decision-makers in a focused advisory conversation" className="section-banner-visual" />
         <div className="audience-list">
           <article><span>01</span><h3>Businesses & leadership teams</h3><p>From growing enterprises to established groups navigating change, reporting and risk.</p></article>
           <article><span>02</span><h3>Investors & families</h3><p>Connected support for capital, governance, succession and long-term financial priorities.</p></article>
@@ -203,6 +211,7 @@ export default function Home() {
           <div><span>02</span><h3>Connect the expertise</h3><p>We assemble the right mix of assurance, consulting, tax and financial specialists.</p></div>
           <div><span>03</span><h3>Make progress practical</h3><p>We turn analysis into clear actions, accountable delivery and useful outcomes.</p></div>
         </div>
+        <SectionVisual src="/home-approach-v2.webp" alt="A senior adviser listening closely before guiding a practical next step" className="approach-visual" />
       </section>
 
       <section className="insights-section section-shell" id="insights" aria-labelledby="insights-title">
@@ -210,6 +219,7 @@ export default function Home() {
           <p className="section-index">05 / Insights</p>
           <h2 id="insights-title">Useful thinking for consequential decisions.</h2>
         </div>
+        <SectionVisual src="/home-insights-v2.webp" alt="Advisers reviewing research, risk signals and emerging business ideas" className="section-banner-visual" />
         <div className="insight-grid">
           {insights.map((insight, index) => (
             <Link href="/insights" key={insight.title} className={`insight-card insight-${index + 1}`}>
@@ -226,6 +236,7 @@ export default function Home() {
           <p className="section-index light">Start a conversation</p>
           <h2 id="contact-title">What would you like to make clearer?</h2>
           <p>Share a little about the decision, challenge or opportunity in front of you. We’ll connect you with the right specialist.</p>
+          <SectionVisual src="/home-contact-v2.webp" alt="A calm first conversation between a senior adviser and a prospective client" className="contact-section-visual" />
         </div>
         <ContactForm />
       </section>

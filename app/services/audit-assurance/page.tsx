@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "../../../lib/seo";
 import { ServicePage } from "../../components/ServicePage";
 
-export const metadata: Metadata = { title: "Audit & Assurance", description: "Audit and assurance services that strengthen confidence in reporting, controls and governance." };
+export const metadata = pageMetadata({ title: "Audit & Assurance", description: "Independent audit and assurance services that strengthen confidence in financial reporting, internal controls and governance.", path: "/services/audit-assurance" });
 
 export default function AuditAssurancePage() {
   return <ServicePage
@@ -10,6 +10,12 @@ export default function AuditAssurancePage() {
     lede="Independent, senior-led assurance that helps stakeholders trust the numbers—and helps leadership see what can be stronger."
     image="/audit-assurance.webp"
     imageAlt="Audit professionals reviewing financial and control documentation"
+    sectionImages={{
+      intro: { src: "/audit-intro-v2.webp", alt: "Audit partner preparing a focused assurance plan from financial records" },
+      offerings: { src: "/audit-offerings-v2.webp", alt: "Assurance specialists examining controls, reconciliations and supporting evidence" },
+      outcomes: { src: "/audit-outcomes-v2.webp", alt: "Board members reviewing a clear assurance conclusion with their adviser" },
+      cta: { src: "/audit-cta-v2.webp", alt: "Senior audit adviser listening to a finance leader after a review" },
+    }}
     introduction="Assurance should do more than confirm the past. It should strengthen the foundations for what comes next."
     accent="blue"
     services={[

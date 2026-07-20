@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "../../../lib/seo";
 import { ServicePage } from "../../components/ServicePage";
 
-export const metadata: Metadata = { title: "Investment & Family Office", description: "Investment, governance and family-office support for long-term priorities." };
+export const metadata = pageMetadata({ title: "Investment & Family Office", description: "Investment advisory, family-office support, family governance, financial planning and wealth structuring for long-term priorities.", path: "/services/investment-family-office" });
 
 export default function InvestmentFamilyOfficePage() {
   return <ServicePage
@@ -10,6 +10,12 @@ export default function InvestmentFamilyOfficePage() {
     lede="Connected support for investment decisions, family governance, financial planning and the stewardship of wealth across generations."
     image="/investment-family-office.webp"
     imageAlt="Investment adviser in a long-term planning discussion with clients"
+    sectionImages={{
+      intro: { src: "/investment-intro-v2.webp", alt: "Family and investment adviser considering long-term priorities together" },
+      offerings: { src: "/investment-offerings-v2.webp", alt: "Investment team reviewing asset allocation, liquidity and governance materials" },
+      outcomes: { src: "/investment-outcomes-v2.webp", alt: "Multi-generational family reviewing a clear long-term stewardship plan" },
+      cta: { src: "/investment-cta-v2.webp", alt: "Family-office adviser listening carefully during a private planning conversation" },
+    }}
     introduction="Capital decisions are rarely only financial. We help connect investments, governance and family priorities into one clearer view."
     accent="rose"
     services={[

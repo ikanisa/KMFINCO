@@ -384,6 +384,32 @@ h1 {
   margin: 0 auto;
 }
 
+.section-visual {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+
+.section-visual img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.rail-section-visual {
+  height: 290px;
+  grid-column: 1 / -1;
+}
+
+.section-banner-visual {
+  height: 390px;
+  margin-bottom: 56px;
+}
+
 .expertise-section {
   padding: 150px 0 100px;
 }
@@ -484,6 +510,7 @@ h1 {
 .read-more {
   display: inline-flex;
   align-items: center;
+  min-height: 24px;
   gap: 10px;
   color: var(--green);
   font-size: 13px;
@@ -494,8 +521,9 @@ h1 {
   margin-top: 40px;
   padding: 78px;
   display: grid;
-  grid-template-columns: 0.9fr 1.25fr;
-  gap: 80px;
+  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-areas: "copy visual" "grid grid";
+  gap: 52px 70px;
   border-radius: 28px;
   background:
     radial-gradient(circle at 92% 2%, rgba(118, 121, 231, 0.12), transparent 34%),
@@ -504,6 +532,10 @@ h1 {
     linear-gradient(135deg, #faf9ff 0%, #f5fbf6 52%, #fff9f5 100%);
   box-shadow: 0 28px 80px rgba(68, 82, 82, 0.11);
 }
+
+.consulting-copy { grid-area: copy; }
+.consulting-visual { grid-area: visual; min-height: 360px; }
+.consulting-grid { grid-area: grid; }
 
 .consulting-copy > p:not(.section-index) {
   max-width: 500px;
@@ -600,6 +632,13 @@ h1 {
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 30px 85px rgba(26, 70, 61, 0.18);
+}
+
+.approach-visual {
+  height: 400px;
+  grid-column: 1 / -1;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .approach-panel {
@@ -718,6 +757,13 @@ h1 {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.contact-section-visual {
+  height: 260px;
+  margin-top: 34px;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
 .contact-form {
   display: grid;
   gap: 18px;
@@ -825,6 +871,12 @@ h1 {
   font-size: 13px;
 }
 
+.site-footer nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
 .site-footer small {
   grid-column: 1 / -1;
   padding-top: 26px;
@@ -901,9 +953,13 @@ h1 {
 .service-intro {
   padding: 140px 0 86px;
   display: grid;
-  grid-template-columns: 0.42fr 1.6fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
 }
+
+.service-intro-copy h2 { max-width: 720px; }
+.service-intro-visual { height: 430px; }
 
 .service-intro h2,
 .service-outcomes h2,
@@ -915,6 +971,13 @@ h1 {
   font-size: clamp(50px, 5.2vw, 78px);
   line-height: 0.98;
 }
+
+.service-offerings-shell {
+  display: grid;
+  gap: 52px;
+}
+
+.service-offerings-visual { height: 430px; }
 
 .service-offerings {
   display: grid;
@@ -968,6 +1031,11 @@ h1 {
   box-shadow: var(--shadow-soft);
 }
 
+.service-outcomes-visual {
+  height: 420px;
+  grid-column: 1 / -1;
+}
+
 .service-outcomes ul {
   margin: 0;
   padding: 0;
@@ -983,14 +1051,22 @@ h1 {
 
 .subpage-cta {
   padding: 140px 0;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 76px;
+  align-items: center;
+  text-align: left;
 }
 
-.subpage-cta > p:not(.section-index) {
+.subpage-cta-copy > p:not(.section-index) {
   max-width: 600px;
-  margin: 22px auto 30px;
+  margin: 22px 0 30px;
   color: var(--ink-soft);
 }
+
+.subpage-cta-visual { height: 430px; }
+
+.services-index-hero img { object-position: center; }
 
 .index-hero {
   position: relative;
@@ -1062,6 +1138,7 @@ h1 {
 
 .about-principles { padding: 140px 0; }
 .about-principles > h2 { max-width: 900px; }
+.about-principles-visual { height: 430px; margin-top: 64px; }
 .principle-grid { margin-top: 80px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
 .principle-grid article { min-height: 320px; padding: 34px 40px; border-right: 1px solid var(--line); }
 .principle-grid article:last-child { border-right: 0; }
@@ -1087,7 +1164,14 @@ h1 {
 .article-card span { color: var(--green); font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
 .article-card h2 { margin: 18px 0; font-size: clamp(38px, 4vw, 58px); line-height: 0.98; }
 .article-card p { color: var(--ink-soft); }
-.article-card a { color: var(--green); font-size: 12px; font-weight: 600; }
+.article-card a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 600;
+}
 
 .contact-page {
   padding: 110px 0 130px;
@@ -1109,7 +1193,8 @@ h1 {
   .service-offerings { grid-template-columns: 1fr 1fr; }
   .service-offerings article:nth-child(3n) { border-right: 1px solid var(--line); }
   .service-offerings article:nth-child(2n) { border-right: 0; }
-  .service-outcomes, .about-story, .contact-page { grid-template-columns: 1fr; }
+  .service-outcomes, .subpage-cta, .about-story, .contact-page { grid-template-columns: 1fr; }
+  .service-outcomes-visual { grid-column: auto; }
   .service-index-grid { grid-template-columns: 1fr; }
   .service-index-card:last-child { grid-column: auto; grid-template-columns: 1fr; grid-template-rows: 58% 42%; }
   .article-card, .article-card:nth-child(even) { grid-template-columns: 1fr; }
@@ -1124,10 +1209,11 @@ h1 {
   .subpage-copy > p:not(.eyebrow) { font-size: 15px; }
   .subpage-image-wrap { min-height: 360px; }
   .service-intro, .index-hero { width: calc(100% - 32px); padding: 90px 0 58px; }
+  .service-intro-visual, .service-offerings-visual, .service-outcomes-visual, .subpage-cta-visual, .about-principles-visual { height: 300px; }
   .service-offerings { grid-template-columns: 1fr; }
   .service-offerings article, .service-offerings article:nth-child(3n) { border-right: 0; }
   .service-outcomes { margin-top: 80px; padding: 44px 24px; grid-template-columns: 1fr; gap: 36px; }
-  .subpage-cta { padding: 100px 0; }
+  .subpage-cta { padding: 100px 0; gap: 42px; }
   .service-index-grid, .article-grid { width: calc(100% - 28px); }
   .service-index-card { min-height: 500px; }
   .service-index-card > div, .article-card > div { padding: 28px 24px; }
@@ -1327,6 +1413,17 @@ h1 {
     width: calc(100% - 40px);
     padding: 54px 28px;
     grid-template-columns: 1fr;
+  }
+
+  .consulting-section {
+    grid-template-areas: "copy" "visual" "grid";
+  }
+
+  .consulting-visual,
+  .section-banner-visual,
+  .approach-visual {
+    height: 320px;
+    min-height: 0;
   }
 
   .audience-list,

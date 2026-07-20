@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "../../../lib/seo";
 import { ServicePage } from "../../components/ServicePage";
 
-export const metadata: Metadata = { title: "Management Consulting", description: "Strategy, internal audit, risk, controls and transformation support for stronger organisations." };
+export const metadata = pageMetadata({ title: "Management Consulting", description: "Management consulting for strategy, transformation, internal audit, risk management, internal controls, governance and performance improvement.", path: "/services/management-consulting" });
 
 export default function ManagementConsultingPage() {
   return <ServicePage
@@ -10,6 +10,12 @@ export default function ManagementConsultingPage() {
     lede="Senior support for strategy, transformation, internal audit, risk management, controls and operational improvement."
     image="/management-consulting.webp"
     imageAlt="Management consultants and executives discussing strategy and risk"
+    sectionImages={{
+      intro: { src: "/consulting-intro-v2.webp", alt: "Leadership team mapping strategic priorities with a senior consultant" },
+      offerings: { src: "/consulting-offerings-v2.webp", alt: "Consultants facilitating a risk, controls and transformation working session" },
+      outcomes: { src: "/consulting-outcomes-v2.webp", alt: "Executive team reviewing an improved operating model and delivery plan" },
+      cta: { src: "/consulting-cta-v2.webp", alt: "Senior consultant in a focused one-to-one discussion with a business leader" },
+    }}
     introduction="We connect strategic ambition with the governance, controls and operating discipline needed to deliver it."
     accent="violet"
     services={[
