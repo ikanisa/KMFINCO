@@ -226,4 +226,11 @@ The multi-page extension is visibly coherent across all ten routes. Every conten
 - The responsive single-column layout explicitly returns both remaining text blocks to the first grid column, preventing an implicit empty mobile column.
 - Rendered-HTML regression coverage now protects the label removal.
 
+## Annotation pass 15 — condensed KMFINCO wordmark
+
+- Source visual truth: the user’s live-site annotation requesting a more premium modern identity, followed by the explicit direction to use no symbol and retain only “KMFINCO” in a slightly condensed form.
+- Retained the existing editorial serif identity while tightening tracking, reducing the horizontal proportion by six percent and slightly refining the desktop, footer and mobile sizes.
+- No monogram, icon, emblem or additional brand device was introduced; the accessible link label remains “KMFINCO home”.
+- The wordmark remains live text for crisp rendering, accessibility and responsive scaling.
+
 final result: passed
