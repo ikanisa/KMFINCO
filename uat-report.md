@@ -45,7 +45,7 @@ Production URL: `https://km-finco-advisory-2026.bosco560038.chatgpt.site`
 - Absolute canonical URLs on all ten routes.
 - Open Graph and X/Twitter metadata with absolute social image origin.
 - Organisation/ProfessionalService structured data in the root document.
-- `robots.txt`, `sitemap.xml` and `manifest.webmanifest` return HTTP 200 with correct content types.
+- `robots.txt` and `sitemap.xml` return HTTP 200 with correct content types.
 - Sitemap contains all ten canonical routes and points to the production origin.
 
 ## Deployment note
