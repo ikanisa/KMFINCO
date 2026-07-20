@@ -29,7 +29,10 @@ test("server-renders the KM FINCO homepage and social metadata", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>KM FINCO \| Clarity for what comes next<\/title>/i);
-  assert.match(html, /property="og:image" content="\/og\.jpg"/i);
+  assert.match(
+    html,
+    /property="og:image" content="https:\/\/km-finco-advisory-2026\.bosco560038\.chatgpt\.site\/og\.jpg"/i,
+  );
   assert.match(html, /Clarity for what comes next\./);
   assert.match(html, /Audit &amp; Assurance/);
   assert.match(html, /Management Consulting/);

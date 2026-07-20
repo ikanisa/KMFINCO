@@ -7,6 +7,7 @@ import "@fontsource/cormorant-garamond/500-italic.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://km-finco-advisory-2026.bosco560038.chatgpt.site"),
   title: {
     default: "KM FINCO | Clarity for what comes next",
     template: "%s | KM FINCO",
