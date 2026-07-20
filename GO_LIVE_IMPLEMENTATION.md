@@ -54,6 +54,7 @@ The website reads these values from the hosting environment. Add them only after
 - Production build passes.
 - Lint passes after final validation.
 - Seven rendered-route and server-integration test suites pass, including contact channels, privacy, canonical domain, sitemap, robots, 404 behaviour, validation, safe unconfigured booking behaviour, free/busy checking and Google Meet event creation.
+- The public booking endpoint also enforces same-origin browser submissions, a per-IP request window, no-store responses and production security headers.
 - Browser QA passes at desktop and mobile widths with no horizontal overflow or console errors.
 - Contact form requires name, work email, message and privacy consent.
 - Analytics does not load without both a configured GA4 ID and visitor consent.

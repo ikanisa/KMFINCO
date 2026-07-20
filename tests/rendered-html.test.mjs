@@ -37,12 +37,34 @@ async function post(pathname, payload, bindings = {}) {
   );
 }
 
+async function postRepeated(pathname, payload, count, headers = {}) {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}-repeated`);
+  const { default: worker } = await import(workerUrl.href);
+  const responses = [];
+  for (let index = 0; index < count; index += 1) {
+    responses.push(await worker.fetch(
+      new Request(`http://localhost${pathname}`, {
+        method: "POST",
+        headers: { accept: "application/json", "content-type": "application/json", ...headers },
+        body: JSON.stringify(payload),
+      }),
+      { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+      { waitUntil() {}, passThroughOnException() {} },
+    ));
+  }
+  return responses;
+}
+
 test("server-renders the KM FINCO homepage and social metadata", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(response.headers.get("referrer-policy"), "strict-origin-when-cross-origin");
+  assert.match(response.headers.get("content-security-policy") ?? "", /frame-ancestors 'none'/);
   assert.match(html, /<title>KM FINCO \| Clarity for what comes next<\/title>/i);
   assert.match(
     html,
@@ -177,6 +199,32 @@ test("first-party booking API validates input and fails safely without credentia
   const bookingUnconfigured = await post("/api/book", { name: "Test Client", email: "test@example.com", start: future, duration: 30, timezone: "Europe/Malta", privacy_consent: "agreed" });
   assert.equal(bookingUnconfigured.status, 503);
   assert.deepEqual(await bookingUnconfigured.json(), { error: "booking_not_configured" });
+
+  const invalidWithoutOrigin = await post("/api/book", { name: "Test", email: "test@example.com" }, {});
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-origin`);
+  const { default: worker } = await import(workerUrl.href);
+  const rejectedOrigin = await worker.fetch(
+    new Request("http://localhost/api/book", {
+      method: "POST",
+      headers: { "content-type": "application/json", origin: "https://example.net" },
+      body: JSON.stringify({ name: "Test", email: "test@example.com" }),
+    }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(invalidWithoutOrigin.status, 400);
+  assert.equal(rejectedOrigin.status, 403);
+  assert.deepEqual(await rejectedOrigin.json(), { error: "origin_not_allowed" });
+
+  const repeated = await postRepeated(
+    "/api/book",
+    { name: "", email: "not-an-email", start: "invalid", duration: 30, privacy_consent: false },
+    7,
+    { "cf-connecting-ip": "203.0.113.44" },
+  );
+  assert.equal(repeated.at(-1).status, 429);
+  assert.equal(repeated.at(-1).headers.get("retry-after"), "600");
 });
 
 test("booking API creates conflict-checked Google Meet events", async () => {

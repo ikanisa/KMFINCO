@@ -16,6 +16,37 @@ type BookingPayload = {
 const json = (body: unknown, status = 200) =>
   Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
 
+const bookingWindows = new Map<string, { count: number; resetAt: number }>();
+const bookingWindowMs = 10 * 60 * 1000;
+const bookingWindowLimit = 6;
+
+function hasTrustedOrigin(request: Request) {
+  const origin = request.headers.get("origin");
+  if (!origin) return true;
+  const requestOrigin = new URL(request.url).origin;
+  return origin === requestOrigin || origin === "https://kmfinco.com" || origin === "https://www.kmfinco.com";
+}
+
+function isRateLimited(request: Request) {
+  const forwarded = request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  if (!forwarded) return false;
+
+  const now = Date.now();
+  const current = bookingWindows.get(forwarded);
+  if (!current || current.resetAt <= now) {
+    bookingWindows.set(forwarded, { count: 1, resetAt: now + bookingWindowMs });
+    return false;
+  }
+
+  current.count += 1;
+  if (bookingWindows.size > 10_000) {
+    for (const [key, value] of bookingWindows) {
+      if (value.resetAt <= now) bookingWindows.delete(key);
+    }
+  }
+  return current.count > bookingWindowLimit;
+}
+
 function text(value: unknown, maximum: number) {
   return typeof value === "string" ? value.trim().slice(0, maximum) : "";
 }
@@ -37,6 +68,14 @@ async function accessToken(clientId: string, clientSecret: string, refreshToken:
 }
 
 export async function POST(request: Request) {
+  if (!hasTrustedOrigin(request)) return json({ error: "origin_not_allowed" }, 403);
+  if (isRateLimited(request)) {
+    return Response.json(
+      { error: "rate_limited" },
+      { status: 429, headers: { "Cache-Control": "no-store", "Retry-After": "600" } },
+    );
+  }
+
   let payload: BookingPayload;
   try {
     payload = (await request.json()) as BookingPayload;
